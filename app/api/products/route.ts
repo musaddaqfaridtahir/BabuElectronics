@@ -1,35 +1,19 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '../../../lib/prisma';
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const categoryId = searchParams.get('categoryId');
-    const search = searchParams.get('search');
     const isFeatured = searchParams.get('isFeatured');
 
     const where: any = {};
-
-    if (categoryId && categoryId !== 'all') {
-      where.categoryId = categoryId;
-    }
-
-    if (search) {
-      where.OR = [
-        { title: { contains: search } },
-        { slug: { contains: search } },
-      ];
-    }
-
-    if (isFeatured === 'true') {
-      where.isFeatured = true;
-    }
+    if (categoryId) where.categoryId = categoryId;
+    if (isFeatured === 'true') where.isFeatured = true;
 
     const products = await prisma.product.findMany({
       where,
-      include: {
-        category: true,
-      },
+      include: { category: true },
       orderBy: { createdAt: 'desc' },
     });
 
@@ -44,6 +28,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const {
       title,
+      slug,
       categoryId,
       cashPrice,
       installmentPrice,
@@ -55,34 +40,28 @@ export async function POST(request: Request) {
       stock,
     } = body;
 
-    if (!title || !categoryId || !cashPrice || !installmentPrice) {
+    if (!title || !slug || !categoryId || !cashPrice || !installmentPrice) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-
-    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') + '-' + Date.now().toString().slice(-4);
 
     const product = await prisma.product.create({
       data: {
         title,
         slug,
         categoryId,
-        cashPrice: parseFloat(cashPrice),
-        installmentPrice: parseFloat(installmentPrice),
-        downpaymentBase: parseFloat(downpaymentBase || 0),
-        durationMonths: parseInt(durationMonths || 12),
-        imageUrl: imageUrl || '/uploads/placeholder.jpg',
-        specsJson: typeof specsJson === 'object' ? JSON.stringify(specsJson) : specsJson || '{}',
+        cashPrice: Number(cashPrice),
+        installmentPrice: Number(installmentPrice),
+        downpaymentBase: Number(downpaymentBase) || 0,
+        durationMonths: Number(durationMonths) || 12,
+        imageUrl: imageUrl || '',
+        specsJson: specsJson || '{}',
         isFeatured: Boolean(isFeatured),
-        stock: parseInt(stock || 10),
-      },
-      include: {
-        category: true,
+        stock: Number(stock) || 1,
       },
     });
 
     return NextResponse.json(product, { status: 201 });
-  } catch (error: any) {
-    console.error('Error creating product:', error);
+  } catch (error) {
     return NextResponse.json({ error: 'Failed to create product' }, { status: 500 });
   }
 }

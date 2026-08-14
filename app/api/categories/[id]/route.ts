@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '../../../../lib/prisma';
 
 export async function PUT(
   request: Request,
@@ -8,17 +8,11 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { name, image } = body;
-
-    const slug = name ? name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') : undefined;
+    const { name, slug, image } = body;
 
     const category = await prisma.category.update({
       where: { id },
-      data: {
-        ...(name && { name }),
-        ...(slug && { slug }),
-        ...(image !== undefined && { image }),
-      },
+      data: { name, slug, image },
     });
 
     return NextResponse.json(category);

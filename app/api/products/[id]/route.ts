@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '../../../../lib/prisma';
 
 export async function GET(
   request: Request,
@@ -29,9 +29,9 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-
     const {
       title,
+      slug,
       categoryId,
       cashPrice,
       installmentPrice,
@@ -43,33 +43,25 @@ export async function PUT(
       stock,
     } = body;
 
-    const slug = title
-      ? title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') + '-' + id.slice(-4)
-      : undefined;
-
     const product = await prisma.product.update({
       where: { id },
       data: {
-        ...(title && { title }),
-        ...(slug && { slug }),
-        ...(categoryId && { categoryId }),
-        ...(cashPrice !== undefined && { cashPrice: parseFloat(cashPrice) }),
-        ...(installmentPrice !== undefined && { installmentPrice: parseFloat(installmentPrice) }),
-        ...(downpaymentBase !== undefined && { downpaymentBase: parseFloat(downpaymentBase) }),
-        ...(durationMonths !== undefined && { durationMonths: parseInt(durationMonths) }),
-        ...(imageUrl && { imageUrl }),
-        ...(specsJson !== undefined && {
-          specsJson: typeof specsJson === 'object' ? JSON.stringify(specsJson) : specsJson,
-        }),
-        ...(isFeatured !== undefined && { isFeatured: Boolean(isFeatured) }),
-        ...(stock !== undefined && { stock: parseInt(stock) }),
+        title,
+        slug,
+        categoryId,
+        cashPrice: Number(cashPrice),
+        installmentPrice: Number(installmentPrice),
+        downpaymentBase: Number(downpaymentBase),
+        durationMonths: Number(durationMonths),
+        imageUrl,
+        specsJson,
+        isFeatured: Boolean(isFeatured),
+        stock: Number(stock),
       },
-      include: { category: true },
     });
 
     return NextResponse.json(product);
   } catch (error) {
-    console.error('Update error:', error);
     return NextResponse.json({ error: 'Failed to update product' }, { status: 500 });
   }
 }
