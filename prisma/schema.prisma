@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  image     String?
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id               String                   @id @default(cuid())
+  title            String
+  slug             String                   @unique
+  categoryId       String
+  category         Category                 @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  cashPrice        Float
+  installmentPrice Float
+  downpaymentBase  Float
+  durationMonths   Int                      @default(12)
+  imageUrl         String
+  specsJson        String?
+  isFeatured       Boolean                  @default(false)
+  stock            Int                      @default(10)
+  applications     InstallmentApplication[]
+  createdAt        DateTime                 @default(now())
+  updatedAt        DateTime                 @updatedAt
+}
+
+model InstallmentApplication {
+  id                  String   @id @default(cuid())
+  customerName        String
+  cnic                String
+  phone               String
+  address             String
+  productId           String
+  product             Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  selectedDownpayment Float
+  selectedTenure      Int
+  guarantorName       String
+  guarantorPhone      String
+  status              String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
