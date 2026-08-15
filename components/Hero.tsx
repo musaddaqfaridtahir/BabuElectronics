@@ -1,15 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  Sparkles,
-  ShieldCheck,
-  Zap,
-  Truck,
-  ArrowRight,
-  BadgeCheck,
-  Clock,
-} from 'lucide-react';
+import { CreditCard, ShieldCheck, MapPin, CheckCircle, ArrowDown, Percent } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 interface HeroProps {
@@ -17,116 +9,125 @@ interface HeroProps {
 }
 
 export default function Hero({ onExploreClick }: HeroProps) {
-  return (
-    <section className="relative bg-gradient-to-b from-[#0F172A] via-[#090D16] to-[#0F172A] text-white py-12 md:py-20 px-4 overflow-hidden border-b border-slate-800 font-sans">
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-600/15 blur-[150px] rounded-full pointer-events-none" />
+  const whatsappUrl =
+    'https://wa.me/923001122782?text=Hi%20Babu%20Electronics%20Pakpattan%2C%20I%20want%20to%20inquire%20about%20installment%20plans.';
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-        {/* Left Column: Copy & CTAs */}
-        <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/30 text-blue-400 text-xs font-black shadow-inner">
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span>Pakpattan's #1 Trusted Installment Store</span>
+  return (
+    <section className="bg-slate-50 text-slate-900 py-10 sm:py-14 px-4 border-b border-slate-200 font-sans relative">
+      
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        {/* Left Column */}
+        <div className="lg:col-span-7 space-y-5">
+          
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-slate-200 text-slate-700 text-xs font-bold shadow-2xs">
+              <MapPin className="w-3.5 h-3.5 text-red-600" />
+              <span>Sahiwal Road, Pakpattan</span>
+            </span>
+
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-50 border border-red-200 text-red-700 text-xs font-bold">
+              <Percent className="w-3.5 h-3.5" />
+              <span>30% Markup on Items &lt; 100k</span>
+            </span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-            Easy Monthly Installments in{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              Pakpattan
-            </span>
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight text-slate-900">
+            Motorbikes, Appliances & Mobiles on Easy Monthly Installments
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Get Motorbikes, EVs, Refrigerators, LEDs, ACs, Washing Machines, Microwave Ovens & Smartphones on flexible 6 to 16-month installment plans with local verification and quick doorstep delivery.
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl font-medium">
+            Babu Electronics Pakpattan provides genuine Honda motorbikes, EV scooters, refrigerators, washing machines, and smart TVs on flexible 6 to 16 month installment plans.
           </p>
 
-          {/* Trust & Store Timing Highlights */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs font-bold text-slate-300">
-            <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-              <BadgeCheck className="w-4 h-4 text-emerald-400" />
-              <span>Local Guarantor System</span>
+          {/* 3 Pillar Local Badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+              <CheckCircle className="w-5 h-5 text-red-600 shrink-0" />
+              <div>
+                <h4 className="text-xs font-bold text-slate-900">Easy Installments</h4>
+                <p className="text-[10px] text-slate-500 font-medium">6 to 16 Month Tenure</p>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-              <Truck className="w-4 h-4 text-blue-400" />
-              <span>Express Pakpattan Delivery</span>
+
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+              <ShieldCheck className="w-5 h-5 text-red-600 shrink-0" />
+              <div>
+                <h4 className="text-xs font-bold text-slate-900">CNIC Approval</h4>
+                <p className="text-[10px] text-slate-500 font-medium">Fast 24-Hour Process</p>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-              <Clock className="w-4 h-4 text-blue-400" />
-              <span>Sat - Thu: 9AM - 9PM (Fri Closed)</span>
+
+            <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+              <CreditCard className="w-5 h-5 text-red-600 shrink-0" />
+              <div>
+                <h4 className="text-xs font-bold text-slate-900">Min Downpayment</h4>
+                <p className="text-[10px] text-slate-500 font-medium">Local Guarantor System</p>
+              </div>
             </div>
           </div>
 
-          {/* Call to Actions */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <button
               onClick={onExploreClick}
-              className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-black text-sm rounded-2xl shadow-xl shadow-blue-600/30 transition-all duration-200 hover:scale-105"
+              className="px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all"
             >
-              <span>Explore Products & Plans</span>
-              <ArrowRight className="w-5 h-5" />
+              <span>Explore Products</span>
+              <ArrowDown className="w-4 h-4" />
             </button>
 
             <a
-              href="https://wa.me/923001122782?text=Hi%20Babu%20Electronics%2C%20I%20want%20to%20apply%20for%20an%20installment%20plan."
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 px-6 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-sm rounded-2xl shadow-lg shadow-[#25D366]/20 transition-all"
+              className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all"
             >
-              <WhatsAppIcon className="w-5 h-5 text-white" size={20} />
-              <span>WhatsApp: 0300-1122782</span>
+              <WhatsAppIcon className="w-4 h-4 text-white" size={16} />
+              <span>Inquire on WhatsApp</span>
             </a>
           </div>
+
         </div>
 
-        {/* Right Column: Hero Visual Feature Box */}
-        <div className="lg:col-span-5 relative">
-          <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 md:p-8 rounded-3xl border border-slate-800 shadow-2xl relative space-y-6">
-            {/* Top Store Badge */}
-            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-white p-1.5 flex items-center justify-center border border-blue-500/30">
-                  <img src="/logo.png" alt="Babu Electronics Logo" className="w-full h-full object-contain" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-white text-sm">Babu Electronics Pakpattan</h3>
-                  <span className="text-[10px] text-blue-400 font-bold">Sahiwal Road Store</span>
-                </div>
-              </div>
-              <span className="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-[10px] font-extrabold border border-emerald-500/30 flex items-center gap-1">
-                <Zap className="w-3 h-3" />
-                Verified
+        {/* Right Column: Hero Visual Card */}
+        <div className="lg:col-span-5">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                Featured Item
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold uppercase">
+                Official Warranty
               </span>
             </div>
 
-            {/* Quick Pricing Highlight Card */}
-            <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 space-y-3">
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-400 font-bold uppercase tracking-wider">Featured Motorbike</span>
-                <span className="text-blue-400 font-extrabold">16 Months Plan</span>
-              </div>
-              <div className="text-lg font-black text-white">Honda CG 125 Self Start 2025</div>
-              <div className="flex items-baseline justify-between pt-2 border-t border-slate-800">
-                <span className="text-xs text-slate-400 font-medium">As low as</span>
-                <span className="text-2xl font-black text-blue-400">Rs. 16,875 <span className="text-xs text-slate-400 font-normal">/ month</span></span>
-              </div>
+            <div className="h-52 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-100">
+              <img
+                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"
+                alt="Honda CG 125 Self Start"
+                className="h-full object-contain"
+              />
             </div>
 
-            {/* Quick Guarantees Grid */}
-            <div className="grid grid-cols-2 gap-3 text-xs font-bold text-slate-300">
-              <div className="p-3 bg-slate-900/90 rounded-xl border border-slate-800 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-blue-400" />
-                <span>100% Authentic</span>
+            <div className="space-y-1">
+              <h3 className="text-base font-bold text-slate-900">Honda CG 125 Self Start (2025 Model)</h3>
+              <p className="text-xs text-slate-500">Cash Price: <strong className="text-slate-900 font-bold">Rs. 285,000</strong></p>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
+              <div>
+                <span className="text-[10px] text-slate-500 font-semibold uppercase block">Min Downpayment</span>
+                <span className="font-bold text-red-600">Rs. 50,000</span>
               </div>
-              <div className="p-3 bg-slate-900/90 rounded-xl border border-slate-800 flex items-center gap-2">
-                <Truck className="w-4 h-4 text-blue-400" />
-                <span>24-48h Delivery</span>
+              <div className="text-right">
+                <span className="text-[10px] text-slate-500 font-semibold uppercase block">Monthly Installment</span>
+                <span className="font-black text-slate-900 text-sm">Rs. 22,916 / mo</span>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -10,8 +10,6 @@ import {
   WashingMachine,
   Smartphone,
   Flame,
-  Droplet,
-  Coffee,
   Sparkles,
 } from 'lucide-react';
 
@@ -25,44 +23,44 @@ export default function CategoryGrid({ activeCategory, onSelectCategory }: Categ
     {
       title: 'Motorbikes',
       slug: 'motorbikes',
-      subtitle: 'Honda, Yamaha, Suzuki',
+      subtitle: 'Honda 125, Super Star, Yamaha',
       icon: Bike,
       badge: 'Popular',
     },
     {
       title: 'Electric Vehicles',
       slug: 'electric-vehicles',
-      subtitle: 'EV Scooters & Bikes',
+      subtitle: 'EV Scooters & Electric Bikes',
       icon: Zap,
       badge: 'Eco-Friendly',
     },
     {
       title: 'Refrigerators & Freezers',
       slug: 'refrigerators',
-      subtitle: 'Dawlance, Haier, Orient',
+      subtitle: 'Haier, Dawlance, Orient',
       icon: Refrigerator,
-      badge: 'Inverter',
+      badge: 'Inverter Pro',
     },
     {
       title: 'LEDs & Smart TVs',
       slug: 'leds',
-      subtitle: '32" to 75" 4K Smart TVs',
+      subtitle: 'Orient, TCL 4K Smart TVs',
       icon: Tv,
-      badge: 'Google TV',
+      badge: 'Android 4K',
     },
     {
       title: 'Air Conditioners',
       slug: 'acs',
-      subtitle: '1.0Ton, 1.5Ton & 2.0Ton ACs',
+      subtitle: 'Gree, Haier 1.5 Ton Inverter ACs',
       icon: Wind,
       badge: 'Heat & Cool',
     },
     {
       title: 'Washing Machines',
       slug: 'washing-machines',
-      subtitle: 'Automatic & Semi-Auto',
+      subtitle: 'Dawlance Fully Automatic',
       icon: WashingMachine,
-      badge: 'Top/Front Load',
+      badge: 'Top Load',
     },
     {
       title: 'Mobiles & Tablets',
@@ -78,41 +76,30 @@ export default function CategoryGrid({ activeCategory, onSelectCategory }: Categ
       icon: Flame,
       badge: 'Kitchen Essential',
     },
-    {
-      title: 'Water Dispensers',
-      slug: 'water-dispensers',
-      subtitle: '3 Tap Hot & Cold Dispensers',
-      icon: Droplet,
-      badge: 'Glass Door',
-    },
-    {
-      title: 'Kitchen & Home Appliances',
-      slug: 'home-appliances',
-      subtitle: 'Juicers, Irons, Food Factories',
-      icon: Coffee,
-      badge: 'Multi-Function',
-    },
   ];
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto space-y-8 font-sans">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-slate-800 pb-6">
+    <section className="py-10 px-4 max-w-7xl mx-auto space-y-6 font-sans">
+      
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 border-b border-slate-200 pb-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-600/10 text-blue-400 text-[11px] font-extrabold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-[11px] font-bold border border-slate-200 mb-1">
+            <Sparkles className="w-3.5 h-3.5 text-red-600" />
             <span>Product Categories</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-            Browse Electronics & Vehicles
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Browse Inventory
           </h2>
         </div>
 
-        <p className="text-xs text-slate-400 max-w-xs">
-          Select any category below to filter available products in Pakpattan on 6-16 month installment plans.
+        <p className="text-xs text-slate-500 max-w-xs font-medium">
+          Select any category to view available stock on 6 to 16 month installment plans.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {/* Category Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5">
         {categoryCards.map((cat) => {
           const Icon = cat.icon;
           const isActive = activeCategory === cat.slug;
@@ -121,28 +108,28 @@ export default function CategoryGrid({ activeCategory, onSelectCategory }: Categ
             <button
               key={cat.slug}
               onClick={() => onSelectCategory(cat.slug)}
-              className={`p-5 rounded-3xl border transition-all duration-300 text-left flex flex-col justify-between space-y-4 group relative overflow-hidden ${
+              className={`p-4 rounded-2xl border transition-all duration-200 text-left flex flex-col justify-between space-y-3 group ${
                 isActive
-                  ? 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-400 text-white shadow-xl shadow-blue-600/25 scale-[1.02]'
-                  : 'bg-slate-900/90 border-slate-800 hover:border-blue-500/50 hover:bg-slate-900 text-slate-300'
+                  ? 'bg-slate-900 border-slate-900 text-white shadow-sm scale-[1.01]'
+                  : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-800 shadow-2xs'
               }`}
             >
               <div className="flex justify-between items-start">
                 <div
-                  className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 ${
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 ${
                     isActive
-                      ? 'bg-white/20 text-white'
-                      : 'bg-blue-600/10 border border-blue-500/20 text-blue-400'
+                      ? 'bg-white/10 text-white'
+                      : 'bg-slate-100 text-slate-700 border border-slate-200'
                   }`}
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-5 h-5" />
                 </div>
 
                 <span
-                  className={`text-[9px] font-black px-2 py-0.5 rounded-full border ${
+                  className={`text-[9px] font-bold px-2 py-0.5 rounded-md border uppercase ${
                     isActive
                       ? 'bg-white/20 text-white border-white/30'
-                      : 'bg-slate-950 text-slate-400 border-slate-800'
+                      : 'bg-slate-50 text-slate-500 border-slate-200'
                   }`}
                 >
                   {cat.badge}
@@ -150,10 +137,10 @@ export default function CategoryGrid({ activeCategory, onSelectCategory }: Categ
               </div>
 
               <div>
-                <h3 className="font-extrabold text-sm text-white line-clamp-1 group-hover:text-blue-400 transition-colors">
+                <h3 className={`font-bold text-sm line-clamp-1 ${isActive ? 'text-white' : 'text-slate-900 group-hover:text-red-600'}`}>
                   {cat.title}
                 </h3>
-                <p className="text-[10px] text-slate-400 line-clamp-1 mt-0.5 font-medium">
+                <p className={`text-[10px] line-clamp-1 mt-0.5 font-medium ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
                   {cat.subtitle}
                 </p>
               </div>

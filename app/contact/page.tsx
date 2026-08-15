@@ -10,10 +10,10 @@ import {
   Clock,
   Send,
   Building2,
+  ExternalLink,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import FacebookIcon from '@/components/FacebookIcon';
 
 export default function ContactPage() {
   const router = useRouter();
@@ -23,7 +23,6 @@ export default function ContactPage() {
   const [subject, setSubject] = useState('General Inquiry');
   const [message, setMessage] = useState('');
 
-  const storeFacebookUrl = 'https://facebook.com/BabuElectronicsCenter';
   const ownerFacebookUrl = 'https://facebook.com/musaddaqfaridtahir';
 
   const handleInquirySubmit = (e: React.FormEvent) => {
@@ -92,15 +91,15 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-lg font-black text-white">Phone Support</h3>
-                <p className="text-xs text-slate-300 font-bold mt-1">0311-122125 | 0300-4191281</p>
+                <p className="text-xs text-slate-300 font-bold mt-1">Call: 0300-4191281</p>
                 <p className="text-[11px] text-slate-400 mt-1">Saturday to Thursday 9:00 AM - 9:00 PM for inquiries.</p>
               </div>
             </div>
             <a
-              href="tel:0311122125"
+              href="tel:+923004191281"
               className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-black text-xs rounded-xl text-center shadow-lg transition-all"
             >
-              Click to Call 0311-122125 / 0300-4191281
+              Click to Call 0300-4191281
             </a>
           </div>
 
@@ -117,7 +116,7 @@ export default function ContactPage() {
               </div>
             </div>
             <a
-              href="https://wa.me/923001122782?text=Hi%20Babu%20Electronics%20Pakpattan%2C%20I%20want%20to%20inquire%20about%20installment%20plans."
+              href="https://wa.me/923001122782?text=Assalam-o-Alaikum%20Babu%20Electronics!%20I%20want%20to%20inquire%20about%20cash%20and%20easy%20installment%20plans."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-black text-xs rounded-xl text-center shadow-lg transition-all flex items-center justify-center gap-2"
@@ -137,7 +136,15 @@ export default function ContactPage() {
                 <MapPin className="w-5 h-5 text-blue-500" />
                 <span>Babu Electronics Location Map</span>
               </h3>
-              <span className="text-xs text-blue-400 font-bold">Sahiwal Road Store</span>
+              <a
+                href="https://maps.google.com/?q=Babu+Electronics+Sahiwal+Road+Pakpattan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-blue-400 font-bold hover:underline flex items-center gap-1"
+              >
+                <span>Google Maps Directions</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
 
             <div className="w-full h-[450px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
