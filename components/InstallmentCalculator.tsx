@@ -25,11 +25,21 @@ export default function InstallmentCalculator({
   }, [products, selectedProductId]);
 
   const selectedProduct = products.find((p) => p.id === selectedProductId) || products[0] || null;
+
+  const isMobile =
+    selectedProduct?.category?.slug === 'mobiles' ||
+    (selectedProduct as any)?.categorySlug === 'mobiles' ||
+    selectedProduct?.title?.toLowerCase().includes('vivo') ||
+    selectedProduct?.title?.toLowerCase().includes('infinix');
+
+  const tenureOptions = isMobile ? [6, 8, 10] : [6, 8, 10, 12, 14, 16];
+
   const plan = calculateInstallmentPlan(
     selectedProduct || { cashPrice: 250000, durationMonths: 12 },
     {
       customDownpaymentPct: downpaymentPct,
-      customTenureMonths: tenureMonths,
+      customTenureMonths: isMobile ? Math.min(10, tenureMonths) : tenureMonths,
+      isMobile,
     }
   );
 
@@ -38,8 +48,6 @@ export default function InstallmentCalculator({
   const markupRatePercentage = plan.markupRatePercentage;
   const markupAmount = plan.markupAmount;
   const monthlyPayment = plan.monthlyPayment;
-
-  const tenureOptions = [6, 8, 10, 12, 14, 16];
 
   return (
     <section className="py-10 sm:py-14 px-3 sm:px-6 max-w-7xl mx-auto font-sans">

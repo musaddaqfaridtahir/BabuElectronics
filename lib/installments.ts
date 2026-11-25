@@ -9,12 +9,15 @@ export interface InstallmentProductInput {
   installmentPrice?: number;
   downpaymentBase?: number;
   durationMonths?: number;
+  categorySlug?: string;
+  category?: { slug?: string; name?: string } | null;
 }
 
 export interface InstallmentOptions {
-  customDownpaymentPct?: number; // e.g. 20, 25, 30, 40, 50
+  customDownpaymentPct?: number; // e.g. 30, 35, 40, 50
   customDownpaymentAmount?: number;
-  customTenureMonths?: number; // e.g. 6, 10, 12, 14, 16
+  customTenureMonths?: number; // e.g. 6, 8, 10 for mobiles; 6..16 for others
+  isMobile?: boolean;
 }
 
 export interface InstallmentPlan {
@@ -54,8 +57,19 @@ export function calculateInstallmentPlan(
 ): InstallmentPlan {
   const cashPrice = Math.max(0, Number(product.cashPrice) || 0);
   const isUnder100k = cashPrice < 100000;
-  const tenureMonths = Math.max(1, options?.customTenureMonths || product.durationMonths || 12);
-  const tieredMarkupRate = getTieredMarkupRate(tenureMonths, isUnder100k);
+
+  // Check if product is mobile phone (Store Rule: 30% markup, max 10 months plan)
+  const isMobile =
+    Boolean(options?.isMobile) ||
+    product.categorySlug === 'mobiles' ||
+    product.category?.slug === 'mobiles';
+
+  let tenureMonths = Math.max(1, options?.customTenureMonths || product.durationMonths || (isMobile ? 10 : 12));
+  if (isMobile && tenureMonths > 10) {
+    tenureMonths = 10;
+  }
+
+  const tieredMarkupRate = isMobile ? 30 : getTieredMarkupRate(tenureMonths, isUnder100k);
 
   // 1. Calculate Downpayment (Minimum 30% on all products per store policy)
   const minDownpaymentPct = 30;
@@ -87,7 +101,12 @@ export function calculateInstallmentPlan(
 
   const financedPrincipal = Math.max(0, cashPrice - downpaymentAmount);
 
-  if (
+  if (isMobile) {
+    // Fixed 30% markup for all mobile phones
+    markupAmount = Math.round(financedPrincipal * 0.30);
+    totalInstallmentPrice = cashPrice + markupAmount;
+    markupRatePercentage = 30;
+  } else if (
     product.installmentPrice &&
     product.installmentPrice > cashPrice &&
     (!options?.customTenureMonths || options.customTenureMonths === (product.durationMonths || 12))

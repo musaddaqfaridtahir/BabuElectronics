@@ -124,18 +124,27 @@ export default function Hero({ onExploreClick }: HeroProps) {
               </span>
             </div>
 
-            {/* Product Image Stage */}
-            <div className="h-44 sm:h-52 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 p-4 flex items-center justify-center border border-white/10 relative overflow-hidden">
+            {/* Product Image Stage - Prominent, Large Showroom Presentation */}
+            <div className="h-64 sm:h-80 md:h-[340px] rounded-2xl bg-gradient-to-b from-white/12 via-white/[0.06] to-transparent p-3 sm:p-5 flex items-center justify-center border border-white/15 relative overflow-hidden group-hover:border-blue-400/40 transition-all">
+              {/* Radial Backdrop Spotlight */}
+              <div className="absolute inset-0 bg-radial from-blue-500/25 via-indigo-500/10 to-transparent pointer-events-none blur-xl" />
+              
               <img
                 src="/uploads/honda/honda-cg125s-self-start.webp"
-                alt="Honda CG 125 Self Start"
+                alt="Honda CG 125 Self Start 2025 Model"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src = '/logo.png';
                 }}
-                className="h-full object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-500 relative z-10"
               />
-              <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[9px] font-bold text-slate-200 border border-white/10">
-                Self Start 2025 Model
+              
+              <span className="absolute bottom-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-black/75 backdrop-blur-md text-[10px] sm:text-xs font-black text-amber-300 border border-amber-400/30 flex items-center gap-1.5 shadow-md">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>2025 Sticker & Self Start</span>
+              </span>
+
+              <span className="absolute top-3 right-3 z-20 px-2.5 py-0.5 rounded-full bg-blue-500/30 backdrop-blur-md text-[10px] font-bold text-blue-200 border border-blue-400/40">
+                Atlas Honda Official
               </span>
             </div>
 

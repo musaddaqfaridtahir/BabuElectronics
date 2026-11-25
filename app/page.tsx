@@ -17,6 +17,7 @@ export default async function HomePage() {
         orderBy: { createdAt: 'desc' },
       }).catch(() => []),
       prisma.category.findMany({
+        where: { products: { some: {} } },
         orderBy: { name: 'asc' },
       }).catch(() => []),
     ]);

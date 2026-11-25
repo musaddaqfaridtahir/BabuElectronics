@@ -1,8 +1,8 @@
 /**
  * BAKED CATALOG BACKUP
  * Synchronized with Babu Electronics inventory database.
- * Total Products: 120
- * Total Categories: 10
+ * Total Products: 140
+ * Total Categories: 8
  */
 
 export const fallbackCatalogCategories = [
@@ -15,11 +15,6 @@ export const fallbackCatalogCategories = [
     "id": "cmssmz6gw0001vjdwbuujxi4y",
     "name": "Electric Vehicles",
     "slug": "electric-vehicles"
-  },
-  {
-    "id": "cmssogzx00009vjvsjtiggs7w",
-    "name": "Kitchen & Home Appliances",
-    "slug": "home-appliances"
   },
   {
     "id": "cmssmz6h70003vjdwnm2ue6ud",
@@ -50,15 +45,430 @@ export const fallbackCatalogCategories = [
     "id": "cmssogzwh0005vjvsldha5ofk",
     "name": "Washing Machines",
     "slug": "washing-machines"
-  },
-  {
-    "id": "cmssogzwv0008vjvsyqo2w4nt",
-    "name": "Water Dispensers",
-    "slug": "water-dispensers"
   }
 ];
 
 export const fallbackCatalogProducts = [
+  {
+    "id": "cmww6gi1k000nrrp0d8sk3ztt",
+    "title": "Haier HDF-175IG Inverter Deep Freezer",
+    "slug": "haier-hdf-175ig",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 78000,
+    "installmentPrice": 93800,
+    "downpaymentBase": 23400,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hdf-175.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Small Family Inverter Deep Freezer\",\"Capacity\":\"175 Liters (6.2 Cu.Ft)\",\"Cooling System\":\"Deep Freezing & Minimal Power Consumption\",\"Compressor Warranty\":\"10 Years Brand Warranty\",\"Colors\":\"White, Silver\"}",
+    "isFeatured": true,
+    "stock": 10,
+    "createdAt": "2026-11-25T13:46:50.072Z",
+    "updatedAt": "2026-11-25T13:46:50.072Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gh2v000lrrp0fylxsm8z",
+    "title": "Haier HDF-245IG Inverter Deep Freezer",
+    "slug": "haier-hdf-245ig",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 89000,
+    "installmentPrice": 106700,
+    "downpaymentBase": 26700,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hdf-245.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Compact Inverter Chest Freezer\",\"Capacity\":\"245 Liters (8.6 Cu.Ft)\",\"Cooling System\":\"Eco Inverter & Anti-Bacterial Liner\",\"Compressor Warranty\":\"10 Years Brand Warranty\",\"Colors\":\"Silver, White\"}",
+    "isFeatured": true,
+    "stock": 10,
+    "createdAt": "2026-11-25T13:46:48.822Z",
+    "updatedAt": "2026-11-25T13:46:48.822Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gg19000jrrp0el6qy4pf",
+    "title": "Haier HDF-285IG Inverter Deep Freezer",
+    "slug": "haier-hdf-285ig",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 98000,
+    "installmentPrice": 117400,
+    "downpaymentBase": 29400,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hdf-285.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Energy Saving Inverter Deep Freezer\",\"Capacity\":\"285 Liters (10.1 Cu.Ft)\",\"Cooling System\":\"Low Voltage Start & Rapid Ice Making\",\"Compressor Warranty\":\"10 Years Brand Warranty\",\"Colors\":\"Silver Grey, White\"}",
+    "isFeatured": true,
+    "stock": 10,
+    "createdAt": "2026-11-25T13:46:47.468Z",
+    "updatedAt": "2026-11-25T13:46:47.468Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gf1a000hrrp0k3sdm0c8",
+    "title": "Haier HDF-345IG Inverter Deep Freezer",
+    "slug": "haier-hdf-345ig",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 108000,
+    "installmentPrice": 128400,
+    "downpaymentBase": 32400,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hdf-345.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Inverter Chest Deep Freezer\",\"Capacity\":\"345 Liters (12.2 Cu.Ft)\",\"Cooling System\":\"Super Freezing & 5-Side Cooling Evaporator\",\"Compressor Warranty\":\"10 Years Official Warranty\",\"Colors\":\"Metallic Grey, Pure White\"}",
+    "isFeatured": true,
+    "stock": 10,
+    "createdAt": "2026-11-25T13:46:46.173Z",
+    "updatedAt": "2026-11-25T13:46:46.173Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gds2000frrp05biyzyey",
+    "title": "Haier HDF-385IG Inverter Deep Freezer (Glass Door)",
+    "slug": "haier-hdf-385ig",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 118000,
+    "installmentPrice": 141000,
+    "downpaymentBase": 35400,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hdf-385.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Toughened Glass Inverter Deep Freezer\",\"Capacity\":\"385 Liters (13.6 Cu.Ft)\",\"Cooling System\":\"Digital Inverter & 100 Hours Cooling Retention\",\"Compressor Warranty\":\"10 Years Official Warranty\",\"Colors\":\"Glass Inox, Glass Black\"}",
+    "isFeatured": true,
+    "stock": 10,
+    "createdAt": "2026-11-25T13:46:44.546Z",
+    "updatedAt": "2026-11-25T13:46:44.546Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gcc1000drrp0sb1me03c",
+    "title": "Haier HDF-405IG Inverter Deep Freezer (Glass Door)",
+    "slug": "haier-hdf-405ig",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 125000,
+    "installmentPrice": 149500,
+    "downpaymentBase": 37500,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hdf-405.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Glass Top Inverter Deep Freezer (Chest)\",\"Capacity\":\"405 Liters (14.3 Cu.Ft)\",\"Cooling System\":\"Super Freeze & Low Voltage Inverter (105V Operation)\",\"Freezer Feature\":\"Balance Hinge & Dual Function (Fridge & Freezer)\",\"Compressor Warranty\":\"10 Years Brand Warranty\",\"Colors\":\"Glass Grey, Glass White\"}",
+    "isFeatured": true,
+    "stock": 10,
+    "createdAt": "2026-11-25T13:46:42.673Z",
+    "updatedAt": "2026-11-25T13:46:42.673Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gb9u000brrp0uxko2g0u",
+    "title": "Haier HRF-316IPPA Smart Inverter Refrigerator",
+    "slug": "haier-hrf-316ippa",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 105000,
+    "installmentPrice": 125900,
+    "downpaymentBase": 31500,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hrf-316.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Compact Double Door Inverter Refrigerator\",\"Capacity\":\"316 Liters (11.2 Cu.Ft)\",\"Cooling Technology\":\"Fast Icing & Power Saving Inverter\",\"Compressor Warranty\":\"10 Years Brand Warranty\",\"Colors\":\"Metallic Silver, Velvet Red\"}",
+    "isFeatured": true,
+    "stock": 8,
+    "createdAt": "2026-11-25T13:46:41.298Z",
+    "updatedAt": "2026-11-25T13:46:41.298Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6gap40009rrp0ne3c2l2c",
+    "title": "Haier HRF-346IPPA Smart Inverter Refrigerator",
+    "slug": "haier-hrf-346ippa",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 115000,
+    "installmentPrice": 136900,
+    "downpaymentBase": 34500,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hrf-346.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Double Door Smart Inverter Refrigerator\",\"Capacity\":\"346 Liters (12.2 Cu.Ft)\",\"Cooling Technology\":\"Digital Inverter & 100 Hours Cooling Retention\",\"Compressor Warranty\":\"10 Years Official Warranty\",\"Colors\":\"Metallic Grey, Ruby Red\"}",
+    "isFeatured": true,
+    "stock": 8,
+    "createdAt": "2026-11-25T13:46:40.551Z",
+    "updatedAt": "2026-11-25T13:46:40.551Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6g9st0007rrp0h3voh0jc",
+    "title": "Haier HRF-418IPPA Smart Inverter Refrigerator",
+    "slug": "haier-hrf-418ippa",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 132000,
+    "installmentPrice": 158000,
+    "downpaymentBase": 39600,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hrf-418.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Double Door Inverter Refrigerator\",\"Capacity\":\"418 Liters (14.8 Cu.Ft)\",\"Cooling Technology\":\"Digital Smart Inverter & Fast Freezing\",\"Energy Efficiency\":\"High Voltage Tolerance (105V - 260V)\",\"Compressor Warranty\":\"10 Years Official Warranty\",\"Colors\":\"Platinum Silver, Velvet Red\"}",
+    "isFeatured": true,
+    "stock": 8,
+    "createdAt": "2026-11-25T13:46:39.388Z",
+    "updatedAt": "2026-11-25T13:46:39.388Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6g9im0005rrp0gpig6ys4",
+    "title": "Haier HRF-458IPPA Smart Inverter Refrigerator",
+    "slug": "haier-hrf-458ippa",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 142000,
+    "installmentPrice": 170600,
+    "downpaymentBase": 42600,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hrf-458.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Double Door Smart Inverter Refrigerator\",\"Capacity\":\"458 Liters (16.2 Cu.Ft)\",\"Cooling Technology\":\"Twin Inverter Compressor & Turbo Cooling\",\"Energy Efficiency\":\"Up to 55% Energy Saving\",\"Compressor Warranty\":\"10 Years Official Brand Warranty\",\"Colors\":\"Inox Silver, Burgundy Red, Midnight Black\"}",
+    "isFeatured": true,
+    "stock": 8,
+    "createdAt": "2026-11-25T13:46:39.022Z",
+    "updatedAt": "2026-11-25T13:46:39.022Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6g97e0003rrp00a6896gk",
+    "title": "Haier HRF-538IPPA Smart Inverter Refrigerator",
+    "slug": "haier-hrf-538ippa",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 165000,
+    "installmentPrice": 196700,
+    "downpaymentBase": 49500,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hrf-538.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"Double Door Top Mount Refrigerator\",\"Capacity\":\"538 Liters (19.0 Cu.Ft)\",\"Cooling Technology\":\"Digital Inverter & 1-Hour Icing Tech (HIT)\",\"Energy Consumption\":\"Runs on Less than 1 Unit / Day (UPS Compatible)\",\"Compressor Warranty\":\"10 Years Official Warranty\",\"Colors\":\"Platinum Grey, Velvet Maroon, Glass Black\"}",
+    "isFeatured": true,
+    "stock": 8,
+    "createdAt": "2026-11-25T13:46:38.618Z",
+    "updatedAt": "2026-11-25T13:46:38.618Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6g8r20001rrp0gllxvub0",
+    "title": "Haier HRF-585SFFGU1 Space Fit 4-Door Inverter Refrigerator",
+    "slug": "haier-hrf-585sffgu1",
+    "categoryId": "cmssmz6h20002vjdw806zq83v",
+    "cashPrice": 245000,
+    "installmentPrice": 292700,
+    "downpaymentBase": 73500,
+    "durationMonths": 16,
+    "imageUrl": "/uploads/haier/hrf-585.jpg",
+    "specsJson": "{\"Brand\":\"Haier Official\",\"Type\":\"4-Door Space Fit French Door Refrigerator\",\"Capacity\":\"585 Liters (20.6 Cu.Ft)\",\"Cooling Technology\":\"Twin Inverter & Multi Air Flow 360\",\"Door Glass\":\"T-Door Toughened Safety Glass Finish\",\"Energy Rating\":\"A+++ Super Energy Saving (Runs on UPS/Solar)\",\"Compressor Warranty\":\"10 Years Official Brand Warranty\",\"Colors\":\"Glass Black, Inox Grey\"}",
+    "isFeatured": true,
+    "stock": 8,
+    "createdAt": "2026-11-25T13:46:38.030Z",
+    "updatedAt": "2026-11-25T13:46:38.030Z",
+    "category": {
+      "id": "cmssmz6h20002vjdw806zq83v",
+      "name": "Refrigerators & Freezers",
+      "slug": "refrigerators"
+    }
+  },
+  {
+    "id": "cmww6bcqp000frrasky0ghl6z",
+    "title": "Infinix Smart 8 (90Hz Magic Ring Daily Driver)",
+    "slug": "infinix-smart-8",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 22999,
+    "installmentPrice": 27900,
+    "downpaymentBase": 6900,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-smart-8.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"Unisoc T606 Octa-Core Processor\",\"Camera\":\"13MP Dual AI Camera with Quad-LED Ring\",\"Battery\":\"5000mAh Big Battery (Type-C USB)\",\"Display\":\"90Hz Fluid Punch-Hole Sunlight Display\",\"RAM & Storage\":\"3GB (+3GB Extended) / 64GB\",\"Colors\":\"Timber Black, Galaxy White, Crystal Green\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:49.921Z",
+    "updatedAt": "2026-11-25T13:42:49.921Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bcjt000drrasn5i8j8fn",
+    "title": "Infinix Smart 20 (90Hz Dynamic Island Display)",
+    "slug": "infinix-smart-20",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 26999,
+    "installmentPrice": 33100,
+    "downpaymentBase": 8100,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-smart-20.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"Octa-Core Helio Processor\",\"Camera\":\"13MP Dual AI Camera + Ring Flashlight\",\"Battery\":\"5000mAh All-Day Battery (Type-C Charging)\",\"Display\":\"90Hz Interactive Dynamic Punch-Hole Display\",\"RAM & Storage\":\"4GB (+4GB Extended) / 64GB\",\"Colors\":\"Galaxy White, Timber Black, Shiny Gold\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:49.673Z",
+    "updatedAt": "2026-11-25T13:42:49.673Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bcee000brrasixttr3ri",
+    "title": "Infinix Hot 70 4G (Ultra-Slim 50MP AI Camera)",
+    "slug": "infinix-hot-70-4g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 36999,
+    "installmentPrice": 45100,
+    "downpaymentBase": 11100,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-hot-70-4g.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"Helio G100 Gaming Processor\",\"Camera\":\"50MP Clear AI Camera + Quad Flash\",\"Battery\":\"5000mAh Long-Life Battery (18W FastCharge)\",\"Display\":\"6.78-inch 120Hz FHD+ Punch-Hole Screen\",\"RAM & Storage\":\"6GB (+6GB Extended) / 128GB\",\"Colors\":\"Sleek Black, Sage Green, Shadow Blue\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:49.478Z",
+    "updatedAt": "2026-11-25T13:42:49.478Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bc7b0009rras2hyms1x1",
+    "title": "Infinix Hot 60 Pro (Helio G100 6nm + 120Hz AMOLED)",
+    "slug": "infinix-hot-60-pro",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 44999,
+    "installmentPrice": 54500,
+    "downpaymentBase": 13500,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-hot-60-pro.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"MediaTek Helio G100 (6nm High Performance)\",\"Camera\":\"50MP Ultra-Clear Dual Camera + LED Flash\",\"Battery\":\"5000mAh 5-Year Durable Battery (33W FastCharge)\",\"Display\":\"120Hz 3D-Curved AMOLED Ultra-Slim Display\",\"RAM & Storage\":\"8GB (+8GB Extended) / 256GB\",\"Colors\":\"Sleek Black, Titanium Grey, Dreamy Purple\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:49.223Z",
+    "updatedAt": "2026-11-25T13:42:49.223Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bc0l0007rrasdv41l5dc",
+    "title": "Infinix GT 20 Pro 5G (Esports Pro Performance)",
+    "slug": "infinix-gt-20-pro-5g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 99999,
+    "installmentPrice": 121000,
+    "downpaymentBase": 30000,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-gt-20-pro.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"Dimensity 8200 Ultimate (4nm TSMC)\",\"Camera\":\"108MP OIS Anti-Shake Gaming Camera\",\"Battery\":\"5000mAh Battery (45W Hyper Charge)\",\"Display\":\"144Hz Bezel-less AMOLED Gaming Display\",\"RAM & Storage\":\"12GB (+12GB Extended) / 256GB\",\"Colors\":\"Mecha Orange, Mecha Silver, Mecha Blue\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:48.981Z",
+    "updatedAt": "2026-11-25T13:42:48.981Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bbuc0005rrasswdz1pzx",
+    "title": "Infinix GT 50 Pro 5G (Flagship Cyber Mecha Gaming)",
+    "slug": "infinix-gt-50-pro-5g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 119999,
+    "installmentPrice": 145000,
+    "downpaymentBase": 36000,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-gt-50-pro.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"MediaTek Dimensity 8200 Ultimate 4nm + Dedicated Gaming Display Chip\",\"Camera\":\"108MP OIS Ultra-Clear Triple Camera\",\"Battery\":\"5000mAh Esports Battery with Bypass Charging & 45W FastCharge\",\"Display\":\"144Hz 10-bit FHD+ AMOLED Borderless Screen\",\"Design\":\"Cyber Mecha RGB Interactive Backlight Interface\",\"RAM & Storage\":\"12GB (+12GB Extended) / 256GB UFS 3.1\",\"Colors\":\"Mecha Silver, Mecha Blue, Cyber Orange\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:48.756Z",
+    "updatedAt": "2026-11-25T13:42:48.756Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bbnz0003rras0f3s4sju",
+    "title": "Infinix Note 60 5G (120Hz AMOLED + Wireless Charging)",
+    "slug": "infinix-note-60-5g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 64999,
+    "installmentPrice": 78500,
+    "downpaymentBase": 19500,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-note-60.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"Dimensity 7020 5G Ultra Gaming Chipset\",\"Camera\":\"108MP Triple AI Camera + Active Halo Lighting\",\"Battery\":\"5000mAh Battery (45W Multi-Speed FastCharge + 20W MagCharge)\",\"Display\":\"6.78-inch 120Hz FHD+ AMOLED Sunlight Display\",\"RAM & Storage\":\"8GB (+8GB Extended) / 256GB\",\"Sound\":\"Sound by JBL Dual Speakers\",\"Colors\":\"Breeze Green, Palm Blue, Titan Gold\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:48.527Z",
+    "updatedAt": "2026-11-25T13:42:48.527Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmww6bbhb0001rrasuhn5q3r3",
+    "title": "Infinix Note 60 Pro 5G (108MP OIS + 70W FastCharge)",
+    "slug": "infinix-note-60-pro-5g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 79999,
+    "installmentPrice": 97000,
+    "downpaymentBase": 24000,
+    "durationMonths": 10,
+    "imageUrl": "/uploads/infinix/infinix-note-60-pro.jpg",
+    "specsJson": "{\"Brand\":\"Infinix Official\",\"Processor\":\"MediaTek Dimensity 7020 (6nm High-Speed 5G)\",\"Camera\":\"108MP Super-Zoom OIS Camera + 32MP Clear Selfie\",\"Battery\":\"5000mAh Ultra-Charge Battery (70W All-Round FastCharge + 20W Wireless)\",\"Display\":\"120Hz 3D-Curved AMOLED Eye-Care Display\",\"RAM & Storage\":\"12GB (+12GB Extended) / 256GB High-Speed Storage\",\"Audio\":\"Dual Stereo Speakers Tuned by JBL\",\"Colors\":\"Titan Gold, Vintage Green, Obsidian Black\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T13:42:48.249Z",
+    "updatedAt": "2026-11-25T13:42:48.249Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
   {
     "id": "cmww11vj0000jrrm4l4k1swj2",
     "title": "Vivo Y05 (Budget Smartphone)",
@@ -278,12 +688,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 343700,
     "downpaymentBase": 86100,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cg125s-self-start.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Red, Black\",\"dimensions_mm\":\"1912 x 727 x 1029\",\"seat_height_mm\":765,\"ground_clearance_mm\":133,\"wheel_base_mm\":1212,\"dry_weight_kg\":108,\"bore_stroke_mm\":\"56.5 x 49.5\",\"compression_ratio\":\"9.0:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.50-18 (38P)\",\"tyre_rear\":\"3.00-17 (50P)\",\"suspension_front\":\"Telescopic Fork 103 mm\",\"suspension_rear\":\"Swing Arm 70 mm\"}",
+    "imageUrl": "/uploads/honda/cg125s-red.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Red (سرخ), Black (سیاہ)\",\"dimensions_mm\":\"1912 x 727 x 1029\",\"seat_height_mm\":765,\"ground_clearance_mm\":133,\"wheel_base_mm\":1212,\"dry_weight_kg\":108,\"bore_stroke_mm\":\"56.5 x 49.5\",\"compression_ratio\":\"9.0:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.50-18 (38P)\",\"tyre_rear\":\"3.00-17 (50P)\",\"suspension_front\":\"Telescopic Fork 103 mm\",\"suspension_rear\":\"Swing Arm 70 mm\",\"colorImages\":{\"Red (سرخ)\":\"/uploads/honda/cg125s-red.webp\",\"Black (سیاہ)\":\"/uploads/honda/cg125s-black.webp\",\"Red\":\"/uploads/honda/cg125s-red.webp\",\"Black\":\"/uploads/honda/cg125s-black.webp\"}}",
     "isFeatured": true,
     "stock": 15,
     "createdAt": "2026-11-25T11:14:09.927Z",
-    "updatedAt": "2026-11-25T11:14:09.927Z",
+    "updatedAt": "2026-11-25T13:44:30.888Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -1979,12 +2389,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 602400,
     "downpaymentBase": 151200,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cb150f.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke SOHC Air Cooled 150cc with Balancer\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"13.0 L (reserve 1.4 L)\",\"Colors\":\"Blue, Red, Black, Silver\",\"dimensions_mm\":\"2051 x 760 x 1085\",\"seat_height_mm\":766,\"ground_clearance_mm\":168,\"wheel_base_mm\":1311,\"dry_weight_kg\":124,\"bore_stroke_mm\":\"57.3 x 57.8\",\"compression_ratio\":\"9.1:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"80/100-18 M/C (47P)\",\"tyre_rear\":\"90/90-18 M/C (51P)\",\"suspension_front\":\"107 mm Telescopic Fork\",\"suspension_rear\":\"91 mm Swing Arm\",\"note\":\"Homepage carousel shows PKR 499,900; product page shows 503,900 (newer page used)\"}",
+    "imageUrl": "/uploads/honda/cb150f-blue.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke SOHC Air Cooled 150cc with Balancer\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"13.0 L (reserve 1.4 L)\",\"Colors\":\"Blue (نیلا), Red (سرخ)\",\"dimensions_mm\":\"2051 x 760 x 1085\",\"seat_height_mm\":766,\"ground_clearance_mm\":168,\"wheel_base_mm\":1311,\"dry_weight_kg\":124,\"bore_stroke_mm\":\"57.3 x 57.8\",\"compression_ratio\":\"9.1:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"80/100-18 M/C (47P)\",\"tyre_rear\":\"90/90-18 M/C (51P)\",\"suspension_front\":\"107 mm Telescopic Fork\",\"suspension_rear\":\"91 mm Swing Arm\",\"note\":\"Homepage carousel shows PKR 499,900; product page shows 503,900 (newer page used)\",\"colorImages\":{\"Blue (نیلا)\":\"/uploads/honda/cb150f-blue.webp\",\"Red (سرخ)\":\"/uploads/honda/cb150f-red.webp\",\"Blue\":\"/uploads/honda/cb150f-blue.webp\",\"Red\":\"/uploads/honda/cb150f-red.webp\"}}",
     "isFeatured": false,
     "stock": 15,
     "createdAt": "2026-11-25T08:46:48.012Z",
-    "updatedAt": "2026-11-25T11:14:09.991Z",
+    "updatedAt": "2026-11-25T13:44:30.956Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -2021,12 +2431,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 474300,
     "downpaymentBase": 119100,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cb125f.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"12.3 L (reserve 2.7 L)\",\"Colors\":\"Blue, Red, Black\",\"dimensions_mm\":\"2043 x 742 x 1095\",\"seat_height_mm\":789,\"ground_clearance_mm\":120,\"wheel_base_mm\":1294,\"dry_weight_kg\":122,\"bore_stroke_mm\":\"56.5 x 49.5\",\"compression_ratio\":\"9.0:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.75-18 M/C (42P)\",\"tyre_rear\":\"90/90-18 M/C (51S)\",\"suspension_front\":\"119 mm Telescopic Fork\",\"suspension_rear\":\"76 mm Swing Arm\"}",
+    "imageUrl": "/uploads/honda/cb125f-blue.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"12.3 L (reserve 2.7 L)\",\"Colors\":\"Blue (نیلا), Red (سرخ), Black (سیاہ)\",\"dimensions_mm\":\"2043 x 742 x 1095\",\"seat_height_mm\":789,\"ground_clearance_mm\":120,\"wheel_base_mm\":1294,\"dry_weight_kg\":122,\"bore_stroke_mm\":\"56.5 x 49.5\",\"compression_ratio\":\"9.0:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.75-18 M/C (42P)\",\"tyre_rear\":\"90/90-18 M/C (51S)\",\"suspension_front\":\"119 mm Telescopic Fork\",\"suspension_rear\":\"76 mm Swing Arm\",\"colorImages\":{\"Blue (نیلا)\":\"/uploads/honda/cb125f-blue.webp\",\"Red (سرخ)\":\"/uploads/honda/cb125f-red.webp\",\"Black (سیاہ)\":\"/uploads/honda/cb125f-black.webp\",\"Blue\":\"/uploads/honda/cb125f-blue.webp\",\"Red\":\"/uploads/honda/cb125f-red.webp\",\"Black\":\"/uploads/honda/cb125f-black.webp\"}}",
     "isFeatured": false,
     "stock": 15,
     "createdAt": "2026-11-25T08:46:47.546Z",
-    "updatedAt": "2026-11-25T11:14:09.957Z",
+    "updatedAt": "2026-11-25T13:44:30.944Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -2042,12 +2452,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 354700,
     "downpaymentBase": 89100,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cg125s-gold.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Black, Red\",\"dimensions_mm\":\"1912 x 727 x 1029\",\"seat_height_mm\":765,\"ground_clearance_mm\":133,\"wheel_base_mm\":1212,\"dry_weight_kg\":108,\"bore_stroke_mm\":\"56.5 x 49.5\",\"compression_ratio\":\"9.0:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.50-18 (38P)\",\"tyre_rear\":\"3.00-17 (50P)\",\"suspension_front\":\"Telescopic Fork 103 mm\",\"suspension_rear\":\"Swing Arm 70 mm\"}",
+    "imageUrl": "/uploads/honda/cg125-gold-black.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Starting\":\"Self / Kick\",\"Transmission\":\"5 Speed Constant Mesh\",\"Fuel Tank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Black & Gold (سیاہ سنہرا), Red & Gold (سرخ سنہرا)\",\"dimensions_mm\":\"1912 x 727 x 1029\",\"seat_height_mm\":765,\"ground_clearance_mm\":133,\"wheel_base_mm\":1212,\"dry_weight_kg\":108,\"bore_stroke_mm\":\"56.5 x 49.5\",\"compression_ratio\":\"9.0:1\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.50-18 (38P)\",\"tyre_rear\":\"3.00-17 (50P)\",\"suspension_front\":\"Telescopic Fork 103 mm\",\"suspension_rear\":\"Swing Arm 70 mm\",\"colorImages\":{\"Black & Gold (سیاہ سنہرا)\":\"/uploads/honda/cg125-gold-black.webp\",\"Red & Gold (سرخ سنہرا)\":\"/uploads/honda/cg125-gold-red.webp\",\"Black\":\"/uploads/honda/cg125-gold-black.webp\",\"Red\":\"/uploads/honda/cg125-gold-red.webp\"}}",
     "isFeatured": true,
     "stock": 15,
     "createdAt": "2026-11-25T08:46:47.310Z",
-    "updatedAt": "2026-11-25T11:14:09.942Z",
+    "updatedAt": "2026-11-25T13:44:30.911Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -2063,12 +2473,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 344280,
     "downpaymentBase": 57380,
     "durationMonths": 12,
-    "imageUrl": "/uploads/honda/honda-cg125s-self-start.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Displacement\":\"124.1 cc\",\"Transmission\":\"5 Speed Constant Mesh\",\"Starting\":\"Self / Kick\",\"FuelTank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Red, Black\"}",
+    "imageUrl": "/uploads/honda/cg125s-red.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4 Stroke 125cc OHV Air Cooled\",\"Displacement\":\"124.1 cc\",\"Transmission\":\"5 Speed Constant Mesh\",\"Starting\":\"Self / Kick\",\"FuelTank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Red (سرخ), Black (سیاہ)\",\"colorImages\":{\"Red (سرخ)\":\"/uploads/honda/cg125s-red.webp\",\"Black (سیاہ)\":\"/uploads/honda/cg125s-black.webp\",\"Red\":\"/uploads/honda/cg125s-red.webp\",\"Black\":\"/uploads/honda/cg125s-black.webp\"}}",
     "isFeatured": false,
     "stock": 10,
     "createdAt": "2026-11-25T08:46:47.055Z",
-    "updatedAt": "2026-11-25T08:46:47.055Z",
+    "updatedAt": "2026-11-25T13:44:30.866Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -2084,12 +2494,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 286000,
     "downpaymentBase": 71600,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cg125.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4-Stroke OHV Air Cooled\",\"Starting\":\"Kick\",\"Transmission\":\"4 Speed Constant Mesh\",\"Fuel Tank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Black, Red\",\"dimensions_mm\":\"1912 x 735 x 1026\",\"seat_height_mm\":764,\"ground_clearance_mm\":132,\"wheel_base_mm\":1204,\"dry_weight_kg\":100,\"bore_stroke_mm\":\"56.5 x 49.5\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.50-18 (4PR)\",\"tyre_rear\":\"3.00-17 (6PR)\",\"suspension_front\":\"Telescopic Fork 103 mm\",\"suspension_rear\":\"Swing Arm 68 mm\",\"note\":\"Site says: contact nearest authorized dealer to purchase\"}",
+    "imageUrl": "/uploads/honda/cg125-black.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4-Stroke OHV Air Cooled\",\"Starting\":\"Kick\",\"Transmission\":\"4 Speed Constant Mesh\",\"Fuel Tank\":\"9.2 L (reserve 2 L)\",\"Colors\":\"Black (سیاہ), Red (سرخ)\",\"dimensions_mm\":\"1912 x 735 x 1026\",\"seat_height_mm\":764,\"ground_clearance_mm\":132,\"wheel_base_mm\":1204,\"dry_weight_kg\":100,\"bore_stroke_mm\":\"56.5 x 49.5\",\"final_drive\":\"Roller Chain\",\"tyre_front\":\"2.50-18 (4PR)\",\"tyre_rear\":\"3.00-17 (6PR)\",\"suspension_front\":\"Telescopic Fork 103 mm\",\"suspension_rear\":\"Swing Arm 68 mm\",\"note\":\"Site says: contact nearest authorized dealer to purchase\",\"colorImages\":{\"Black (سیاہ)\":\"/uploads/honda/cg125-black.webp\",\"Red (سرخ)\":\"/uploads/honda/cg125-red.webp\",\"Black\":\"/uploads/honda/cg125-black.webp\",\"Red\":\"/uploads/honda/cg125-red.webp\"}}",
     "isFeatured": true,
     "stock": 15,
     "createdAt": "2026-11-25T08:46:46.755Z",
-    "updatedAt": "2026-11-25T11:14:09.910Z",
+    "updatedAt": "2026-11-25T13:44:30.900Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -2126,12 +2536,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 204900,
     "downpaymentBase": 51300,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cd70-dream.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4-Stroke OHC Air-Cooled\",\"Starting\":\"Kick\",\"Transmission\":\"4 Speed Constant Mesh\",\"Fuel Tank\":\"8.6 L (reserve 1.0 L)\",\"Colors\":\"Red, Black, Silver\",\"dimensions_mm\":\"1899 x 751 x 1014\",\"ground_clearance_mm\":136,\"dry_weight_kg\":82,\"bore_stroke_mm\":\"47.0 x 41.4\",\"compression_ratio\":\"9.3:1\",\"clutch\":\"Multiplate Wet\",\"frame\":\"Backbone\",\"tyre_front\":\"2.25-17 (4PR)\",\"tyre_rear\":\"2.50-17 (4PR)\"}",
+    "imageUrl": "/uploads/honda/cd70dream-red.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4-Stroke OHC Air-Cooled\",\"Starting\":\"Kick\",\"Transmission\":\"4 Speed Constant Mesh\",\"Fuel Tank\":\"8.6 L (reserve 1.0 L)\",\"Colors\":\"Red (سرخ), Black (سیاہ)\",\"dimensions_mm\":\"1899 x 751 x 1014\",\"ground_clearance_mm\":136,\"dry_weight_kg\":82,\"bore_stroke_mm\":\"47.0 x 41.4\",\"compression_ratio\":\"9.3:1\",\"clutch\":\"Multiplate Wet\",\"frame\":\"Backbone\",\"tyre_front\":\"2.25-17 (4PR)\",\"tyre_rear\":\"2.50-17 (4PR)\",\"colorImages\":{\"Red (سرخ)\":\"/uploads/honda/cd70dream-red.webp\",\"Black (سیاہ)\":\"/uploads/honda/cd70dream-black.webp\",\"Red\":\"/uploads/honda/cd70dream-red.webp\",\"Black\":\"/uploads/honda/cd70dream-black.webp\"}}",
     "isFeatured": false,
     "stock": 15,
     "createdAt": "2026-11-25T08:46:46.204Z",
-    "updatedAt": "2026-11-25T11:14:09.878Z",
+    "updatedAt": "2026-11-25T13:44:30.933Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
@@ -2147,12 +2557,12 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 192000,
     "downpaymentBase": 48000,
     "durationMonths": 16,
-    "imageUrl": "/uploads/honda/honda-cd70.webp",
-    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4-Stroke OHC Air Cooled\",\"Starting\":\"Kick\",\"Transmission\":\"4 Speed Constant Mesh\",\"Fuel Tank\":\"8.5 L (reserve 1.0 L)\",\"Colors\":\"Blue, Red, Black\",\"dimensions_mm\":\"1897 x 751 x 1014\",\"ground_clearance_mm\":136,\"dry_weight_kg\":82,\"bore_stroke_mm\":\"47.0 x 41.4\",\"compression_ratio\":\"9.3:1\",\"clutch\":\"Multiplate Wet\",\"frame\":\"Backbone\",\"tyre_front\":\"2.25-17 (4PR)\",\"tyre_rear\":\"2.50-17 (4PR)\"}",
+    "imageUrl": "/uploads/honda/cd70-blue.webp",
+    "specsJson": "{\"Brand\":\"Atlas Honda\",\"Engine\":\"4-Stroke OHC Air Cooled\",\"Starting\":\"Kick\",\"Transmission\":\"4 Speed Constant Mesh\",\"Fuel Tank\":\"8.5 L (reserve 1.0 L)\",\"Colors\":\"Blue (نیلا), Red (سرخ), Black (سیاہ)\",\"dimensions_mm\":\"1897 x 751 x 1014\",\"ground_clearance_mm\":136,\"dry_weight_kg\":82,\"bore_stroke_mm\":\"47.0 x 41.4\",\"compression_ratio\":\"9.3:1\",\"clutch\":\"Multiplate Wet\",\"frame\":\"Backbone\",\"tyre_front\":\"2.25-17 (4PR)\",\"tyre_rear\":\"2.50-17 (4PR)\",\"colorImages\":{\"Blue (نیلا)\":\"/uploads/honda/cd70-blue.webp\",\"Red (سرخ)\":\"/uploads/honda/cd70-red.webp\",\"Black (سیاہ)\":\"/uploads/honda/cd70-black.webp\",\"Blue\":\"/uploads/honda/cd70-blue.webp\",\"Red\":\"/uploads/honda/cd70-red.webp\",\"Black\":\"/uploads/honda/cd70-black.webp\"}}",
     "isFeatured": false,
     "stock": 15,
     "createdAt": "2026-11-25T08:46:45.944Z",
-    "updatedAt": "2026-11-25T11:14:09.849Z",
+    "updatedAt": "2026-11-25T13:44:30.923Z",
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",

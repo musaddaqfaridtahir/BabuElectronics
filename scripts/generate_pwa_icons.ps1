@@ -14,7 +14,7 @@ function Generate-Icon($size, $destPath, $paddingRatio) {
     $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::White)
     $g.FillRectangle($brush, 0, 0, $size, $size)
 
-    # Calculate centered bounding box with safe padding
+    # Calculate centered bounding box with safe padding (Aspect ratio 100% strictly preserved)
     $availW = $size * (1.0 - (2 * $paddingRatio))
     $availH = $size * (1.0 - (2 * $paddingRatio))
 
@@ -38,17 +38,17 @@ function Generate-Icon($size, $destPath, $paddingRatio) {
     $bmp.Save($destPath, [System.Drawing.Imaging.ImageFormat]::Png)
     $g.Dispose()
     $bmp.Dispose()
-    Write-Host "Generated $destPath ($size x $size)"
+    Write-Host "Generated $destPath ($size x $size, padding=$paddingRatio)"
 }
 
-# 1. 512x512 PWA Icon (Maskable & standard)
-Generate-Icon 512 "D:\Web_Data\BabuElectronics\public\icon-512.png" 0.15
+# 1. 512x512 PWA Icon
+Generate-Icon 512 "D:\Web_Data\BabuElectronics\public\icon-512.png" 0.04
 
 # 2. 192x192 PWA Icon
-Generate-Icon 192 "D:\Web_Data\BabuElectronics\public\icon-192.png" 0.15
+Generate-Icon 192 "D:\Web_Data\BabuElectronics\public\icon-192.png" 0.04
 
 # 3. 180x180 Apple Touch Icon
-Generate-Icon 180 "D:\Web_Data\BabuElectronics\public\apple-touch-icon.png" 0.12
+Generate-Icon 180 "D:\Web_Data\BabuElectronics\public\apple-touch-icon.png" 0.04
 
 $srcImg.Dispose()
-Write-Host "All PWA icons generated successfully!"
+Write-Host "All PWA icons regenerated successfully with perfect aspect ratio and bold presentation!"

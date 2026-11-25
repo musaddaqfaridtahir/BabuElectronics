@@ -59,12 +59,22 @@ export default function InstallmentModal({
     }
   }
 
+  const isMobile =
+    product.category?.slug === 'mobiles' ||
+    (product as any)?.categorySlug === 'mobiles' ||
+    product.title.toLowerCase().includes('vivo') ||
+    product.title.toLowerCase().includes('infinix');
+
+  const tenureOptions = isMobile ? [6, 8, 10] : [6, 8, 10, 12, 14, 16];
+
   const [customerName, setCustomerName] = useState('');
   const [cnic, setCnic] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [downpaymentPct, setDownpaymentPct] = useState<number>(30);
-  const [tenure, setTenure] = useState<number>(product.durationMonths || 12);
+  const [tenure, setTenure] = useState<number>(
+    isMobile ? Math.min(10, product.durationMonths || 10) : product.durationMonths || 12
+  );
   const [guarantorName, setGuarantorName] = useState('');
   const [guarantorPhone, setGuarantorPhone] = useState('');
   const [selectedColor, setSelectedColor] = useState<string>(
@@ -80,6 +90,7 @@ export default function InstallmentModal({
   const plan = calculateInstallmentPlan(product, {
     customDownpaymentPct: downpaymentPct,
     customTenureMonths: tenure,
+    isMobile,
   });
   const downpaymentAmount = plan.downpaymentAmount;
   const monthlyInstallment = plan.monthlyPayment;
@@ -277,11 +288,11 @@ export default function InstallmentModal({
 
               <div>
                 <label className="block text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                  Tenure Duration (6 to 16 Months):
+                  Tenure Duration ({isMobile ? 'Max 10 Months for Mobiles' : '6 to 16 Months'}):
                 </label>
                 {/* 3 columns on mobile, 6 on desktop so buttons never overflow */}
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
-                  {[6, 8, 10, 12, 14, 16].map((m) => (
+                <div className={`grid gap-1.5 sm:gap-2 ${isMobile ? 'grid-cols-3' : 'grid-cols-3 sm:grid-cols-6'}`}>
+                  {tenureOptions.map((m) => (
                     <button
                       type="button"
                       key={m}
