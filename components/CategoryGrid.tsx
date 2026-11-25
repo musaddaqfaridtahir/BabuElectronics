@@ -172,15 +172,15 @@ export default function CategoryGrid({
             <button
               key={cat.slug}
               onClick={() => onSelectCategory(cat.slug)}
-              className={`p-3.5 sm:p-5 rounded-2xl border transition-all duration-300 text-left flex flex-col justify-between space-y-3 group cursor-pointer ${
+              className={`p-3.5 sm:p-5 rounded-2xl border transition-all duration-300 ease-out text-left flex flex-col justify-between space-y-3 group cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 border-slate-900 text-white shadow-lg shadow-blue-950/20 scale-[1.02]'
-                  : 'bg-white border-slate-200/80 hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 text-slate-800'
+                  ? 'bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 border-slate-900 text-white shadow-xl shadow-blue-950/20 scale-[1.02] ring-2 ring-blue-500/30'
+                  : 'bg-white border-slate-200/80 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1 text-slate-800'
               }`}
             >
               <div className="flex justify-between items-start gap-1">
                 <div
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 shrink-0 border ${
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shrink-0 border ${
                     isActive
                       ? 'bg-white/10 text-white border-white/20'
                       : meta.iconBg

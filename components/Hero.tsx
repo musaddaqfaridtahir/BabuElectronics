@@ -103,16 +103,19 @@ export default function Hero({ onExploreClick }: HeroProps) {
 
         {/* Right Column: Featured Flagship Product Showcase Card */}
         <div className="lg:col-span-5">
-          <div className="bg-white/[0.07] backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl relative group">
+          <div className="bg-white/[0.08] backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl relative group animate-float hover:border-blue-400/40 transition-all duration-300">
             
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[11px] font-black tracking-wider text-slate-300 uppercase">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className="text-[11px] font-black tracking-wider text-slate-200 uppercase">
                   Flagship Product
                 </span>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-extrabold uppercase">
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-extrabold uppercase shimmer-badge">
                 2025 Model
               </span>
             </div>

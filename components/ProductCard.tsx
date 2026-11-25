@@ -53,7 +53,7 @@ export default function ProductCard({ product, onApplyInstallment }: ProductCard
   const whatsappUrl = `https://wa.me/923001122782?text=${whatsappMessage}`;
 
   return (
-    <div className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group font-sans h-full">
+    <div className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xs hover:shadow-2xl hover:border-blue-300 hover:-translate-y-2 transition-all duration-300 ease-out flex flex-col justify-between group font-sans h-full">
       
       <div>
         {/* Product Image Stage */}
@@ -69,16 +69,16 @@ export default function ProductCard({ product, onApplyInstallment }: ProductCard
               e.currentTarget.onerror = null;
               e.currentTarget.src = '/logo.png';
             }}
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 ease-out"
           />
 
           {/* Category Tag */}
-          <span className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-white/95 backdrop-blur-md border border-slate-200/90 text-slate-700 text-[9px] sm:text-[10px] font-bold rounded-lg uppercase truncate max-w-[100px] shadow-2xs">
+          <span className="absolute top-2.5 left-2.5 px-2 py-0.5 bg-white/95 backdrop-blur-md border border-slate-200/90 text-slate-700 text-[9px] sm:text-[10px] font-bold rounded-lg uppercase truncate max-w-[100px] shadow-2xs group-hover:border-blue-400 transition-colors">
             {product.category?.name || 'Electronics'}
           </span>
 
           {/* Markup Tier Badge */}
-          <span className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold text-[9px] sm:text-[10px] rounded-lg flex items-center gap-0.5 uppercase shadow-xs shadow-blue-500/20">
+          <span className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold text-[9px] sm:text-[10px] rounded-lg flex items-center gap-0.5 uppercase shadow-xs shadow-blue-500/20 shimmer-badge">
             <Percent className="w-2.5 h-2.5" />
             <span>{plan.markupRatePercentage}% Markup</span>
           </span>
