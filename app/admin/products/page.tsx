@@ -12,6 +12,8 @@ import {
   X,
   Filter,
   Image as ImageIcon,
+  Sparkles,
+  CheckCircle2,
 } from 'lucide-react';
 
 interface Category {
@@ -63,6 +65,11 @@ export default function AdminProductsPage() {
   const [uploadingImage, setUploadingImage] = useState(false);
   const [formError, setFormError] = useState('');
 
+  // URL Extractor State
+  const [extractUrl, setExtractUrl] = useState('');
+  const [isExtracting, setIsExtracting] = useState(false);
+  const [extractSuccess, setExtractSuccess] = useState('');
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -88,6 +95,8 @@ export default function AdminProductsPage() {
 
   const handleOpenModal = (prod: Product | null = null) => {
     setFormError('');
+    setExtractUrl('');
+    setExtractSuccess('');
     if (prod) {
       setEditingProduct(prod);
       setFormTitle(prod.title);
@@ -124,6 +133,46 @@ export default function AdminProductsPage() {
       setFormStock('10');
     }
     setIsModalOpen(true);
+  };
+
+  const handleExtractFromUrl = async () => {
+    if (!extractUrl || !extractUrl.startsWith('http')) {
+      setFormError('Please enter a valid product link (starting with http:// or https://)');
+      return;
+    }
+    setIsExtracting(true);
+    setFormError('');
+    setExtractSuccess('');
+
+    try {
+      const res = await fetch('/api/admin/extract-product', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: extractUrl.trim() }),
+      });
+      const data = await res.json();
+      if (res.ok && data.extracted) {
+        const ext = data.extracted;
+        if (ext.title) setFormTitle(ext.title);
+        if (ext.cashPrice) setFormCashPrice(ext.cashPrice.toString());
+        if (ext.installmentPrice) setFormInstallmentPrice(ext.installmentPrice.toString());
+        if (ext.downpaymentBase) setFormDownpaymentBase(ext.downpaymentBase.toString());
+        if (ext.durationMonths) setFormDurationMonths(ext.durationMonths.toString());
+        if (ext.imageUrl) setFormImageUrl(ext.imageUrl);
+        if (ext.categoryId) setFormCategoryId(ext.categoryId);
+        if (ext.specs && typeof ext.specs === 'object') {
+          const pairs = Object.entries(ext.specs).map(([k, v]) => ({ key: k, value: String(v) }));
+          if (pairs.length > 0) setFormSpecs(pairs);
+        }
+        setExtractSuccess('Product details extracted successfully! Review and click Save Product.');
+      } else {
+        setFormError(data.error || 'Failed to extract product from URL.');
+      }
+    } catch (err: any) {
+      setFormError('Failed to fetch from URL: ' + (err.message || 'Network error'));
+    } finally {
+      setIsExtracting(false);
+    }
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -170,16 +219,17 @@ export default function AdminProductsPage() {
     });
 
     const payload = {
-      title: formTitle,
+      title: formTitle.trim(),
+      slug: editingProduct ? editingProduct.slug : undefined,
       categoryId: formCategoryId,
-      cashPrice: formCashPrice,
-      installmentPrice: formInstallmentPrice,
-      downpaymentBase: formDownpaymentBase || '0',
-      durationMonths: formDurationMonths || '12',
+      cashPrice: Number(formCashPrice),
+      installmentPrice: Number(formInstallmentPrice),
+      downpaymentBase: Number(formDownpaymentBase) || 0,
+      durationMonths: Number(formDurationMonths) || 12,
       imageUrl: formImageUrl || 'https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500',
       specsJson: specsObj,
       isFeatured: formIsFeatured,
-      stock: formStock || '10',
+      stock: Number(formStock) || 10,
     };
 
     try {
@@ -402,6 +452,51 @@ export default function AdminProductsPage() {
                   {formError}
                 </div>
               )}
+
+              {/* Instant URL Extractor Box */}
+              <div className="bg-blue-950/40 border border-blue-500/30 p-3.5 sm:p-4 rounded-2xl space-y-2.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <span className="text-xs font-black text-blue-400 flex items-center gap-1.5 uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
+                    Auto-Fill from Website Link (ویب سائٹ کے لنک سے خود بھریں)
+                  </span>
+                  <span className="text-[10px] text-slate-400">Daraz, PriceOye, Brand Site, etc.</span>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    type="url"
+                    value={extractUrl}
+                    onChange={(e) => setExtractUrl(e.target.value)}
+                    placeholder="Paste product link (e.g. https://www.daraz.pk/products/...)"
+                    className="flex-1 px-3 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleExtractFromUrl}
+                    disabled={isExtracting}
+                    className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-extrabold text-xs rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all shrink-0 active:scale-[0.98]"
+                  >
+                    {isExtracting ? (
+                      <>
+                        <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Extracting Data...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Extract Details</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {extractSuccess && (
+                  <p className="text-[11px] text-emerald-400 font-bold flex items-center gap-1.5 pt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" /> {extractSuccess}
+                  </p>
+                )}
+              </div>
 
               {/* Title & Category */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

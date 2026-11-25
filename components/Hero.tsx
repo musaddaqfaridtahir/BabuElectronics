@@ -1,15 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  Sparkles,
-  ShieldCheck,
-  Zap,
-  Truck,
-  ArrowRight,
-  BadgeCheck,
-  Clock,
-} from 'lucide-react';
+import { CreditCard, ShieldCheck, MapPin, CheckCircle2, ArrowDown, Sparkles, Star, Award, ChevronRight } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 interface HeroProps {
@@ -17,116 +9,169 @@ interface HeroProps {
 }
 
 export default function Hero({ onExploreClick }: HeroProps) {
-  return (
-    <section className="relative bg-gradient-to-b from-[#0F172A] via-[#090D16] to-[#0F172A] text-white py-12 md:py-20 px-4 overflow-hidden border-b border-slate-800 font-sans">
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-600/15 blur-[150px] rounded-full pointer-events-none" />
+  const whatsappUrl =
+    'https://wa.me/923001122782?text=Hi%20Babu%20Electronics%20Pakpattan%2C%20I%20want%20to%20inquire%20about%20installment%20plans.';
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-        {/* Left Column: Copy & CTAs */}
-        <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/30 text-blue-400 text-xs font-black shadow-inner">
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span>Pakpattan's #1 Trusted Installment Store</span>
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#0a142f] to-[#071330] text-white py-10 sm:py-16 px-3 sm:px-6 font-sans">
+      
+      {/* Ambient background glow highlights */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+        
+        {/* Left Column: Headline, Trust Badges & CTAs */}
+        <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+          
+          {/* Top Pill Badges */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-bold backdrop-blur-md">
+              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <span>Sahiwal Road, Pakpattan</span>
+            </span>
+
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold backdrop-blur-md">
+              <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+              <span>10+ Years Trusted Showroom</span>
+            </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-            Easy Monthly Installments in{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              Pakpattan
-            </span>
-          </h1>
+          <div className="space-y-2">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15]">
+              Motorbikes, Appliances & Mobiles{' '}
+              <span className="block bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
+                On Easy Monthly Installments
+              </span>
+            </h1>
+            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl font-medium pt-1">
+              Pakpattan&apos;s leading showroom for Honda CG/CD bikes, EV scooters, Haier/Dawlance inverter refrigerators, automatic washing machines, and 4K LED TVs on easy 6 to 16 month local financing.
+            </p>
+          </div>
 
-          <p className="text-slate-300 text-sm sm:text-base font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Get Motorbikes, EVs, Refrigerators, LEDs, ACs, Washing Machines, Microwave Ovens & Smartphones on flexible 6 to 16-month installment plans with local verification and quick doorstep delivery.
-          </p>
+          {/* 3 Pillar Features */}
+          <div className="grid grid-cols-3 gap-2.5 sm:gap-3.5 pt-1">
+            <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-blue-400/30 transition-all text-center sm:text-left">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center mb-2 mx-auto sm:mx-0">
+                <CreditCard className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-black text-white">6 to 16 Months</h4>
+              <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">Flexible Installments</p>
+            </div>
 
-          {/* Trust & Store Timing Highlights */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs font-bold text-slate-300">
-            <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-              <BadgeCheck className="w-4 h-4 text-emerald-400" />
-              <span>Local Guarantor System</span>
+            <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-emerald-400/30 transition-all text-center sm:text-left">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-2 mx-auto sm:mx-0">
+                <ShieldCheck className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-black text-white">CNIC Approval</h4>
+              <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">Fast 24-48h Check</p>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-              <Truck className="w-4 h-4 text-blue-400" />
-              <span>Express Pakpattan Delivery</span>
-            </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-              <Clock className="w-4 h-4 text-blue-400" />
-              <span>Sat - Thu: 9AM - 9PM (Fri Closed)</span>
+
+            <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-indigo-400/30 transition-all text-center sm:text-left">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center mb-2 mx-auto sm:mx-0">
+                <Award className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-black text-white">100% Genuine</h4>
+              <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">Company Warranty</p>
             </div>
           </div>
 
-          {/* Call to Actions */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          {/* Action CTAs */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
             <button
               onClick={onExploreClick}
-              className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-black text-sm rounded-2xl shadow-xl shadow-blue-600/30 transition-all duration-200 hover:scale-105"
+              className="px-6 py-3.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-black text-xs sm:text-sm rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98] cursor-pointer"
             >
-              <span>Explore Products & Plans</span>
-              <ArrowRight className="w-5 h-5" />
+              <span>Explore Product Catalog</span>
+              <ArrowDown className="w-4 h-4" />
             </button>
 
             <a
-              href="https://wa.me/923001122782?text=Hi%20Babu%20Electronics%2C%20I%20want%20to%20apply%20for%20an%20installment%20plan."
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 px-6 py-4 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-sm rounded-2xl shadow-lg shadow-[#25D366]/20 transition-all"
+              className="px-6 py-3.5 bg-white/10 hover:bg-white/15 border border-white/15 text-white font-bold text-xs sm:text-sm rounded-xl backdrop-blur-md flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
             >
-              <WhatsAppIcon className="w-5 h-5 text-white" size={20} />
-              <span>WhatsApp: 0300-1122782</span>
+              <WhatsAppIcon className="w-4 h-4 text-emerald-400" size={16} />
+              <span>Inquire on WhatsApp</span>
             </a>
           </div>
+
         </div>
 
-        {/* Right Column: Hero Visual Feature Box */}
-        <div className="lg:col-span-5 relative">
-          <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 md:p-8 rounded-3xl border border-slate-800 shadow-2xl relative space-y-6">
-            {/* Top Store Badge */}
-            <div className="flex justify-between items-center pb-4 border-b border-slate-800">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-white p-1.5 flex items-center justify-center border border-blue-500/30">
-                  <img src="/logo.png" alt="Babu Electronics Logo" className="w-full h-full object-contain" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-white text-sm">Babu Electronics Pakpattan</h3>
-                  <span className="text-[10px] text-blue-400 font-bold">Sahiwal Road Store</span>
-                </div>
+        {/* Right Column: Featured Flagship Product Showcase Card */}
+        <div className="lg:col-span-5">
+          <div className="bg-white/[0.07] backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl relative group">
+            
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[11px] font-black tracking-wider text-slate-300 uppercase">
+                  Flagship Product
+                </span>
               </div>
-              <span className="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-[10px] font-extrabold border border-emerald-500/30 flex items-center gap-1">
-                <Zap className="w-3 h-3" />
-                Verified
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-extrabold uppercase">
+                2025 Model
               </span>
             </div>
 
-            {/* Quick Pricing Highlight Card */}
-            <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800/80 space-y-3">
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-slate-400 font-bold uppercase tracking-wider">Featured Motorbike</span>
-                <span className="text-blue-400 font-extrabold">16 Months Plan</span>
-              </div>
-              <div className="text-lg font-black text-white">Honda CG 125 Self Start 2025</div>
-              <div className="flex items-baseline justify-between pt-2 border-t border-slate-800">
-                <span className="text-xs text-slate-400 font-medium">As low as</span>
-                <span className="text-2xl font-black text-blue-400">Rs. 16,875 <span className="text-xs text-slate-400 font-normal">/ month</span></span>
+            {/* Product Image Stage */}
+            <div className="h-44 sm:h-52 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 p-4 flex items-center justify-center border border-white/10 relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"
+                alt="Honda CG 125 Self Start"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = '/logo.png';
+                }}
+                className="h-full object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300"
+              />
+              <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[9px] font-bold text-slate-200 border border-white/10">
+                Self Start Model
+              </span>
+            </div>
+
+            {/* Product Title & Cash Price */}
+            <div className="space-y-1">
+              <h3 className="text-base sm:text-lg font-black text-white">
+                Honda CG 125 Self Start (2025 Model)
+              </h3>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-slate-400 font-medium">Cash Price:</span>
+                <span className="text-emerald-300 font-black text-sm">Rs. 285,000</span>
               </div>
             </div>
 
-            {/* Quick Guarantees Grid */}
-            <div className="grid grid-cols-2 gap-3 text-xs font-bold text-slate-300">
-              <div className="p-3 bg-slate-900/90 rounded-xl border border-slate-800 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-blue-400" />
-                <span>100% Authentic</span>
+            {/* Installment Breakdown Box */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-400/20 flex justify-between items-center text-xs">
+              <div>
+                <span className="text-[10px] text-blue-300 font-semibold uppercase block">
+                  Advance Downpayment
+                </span>
+                <span className="font-black text-white text-sm">Rs. 50,000</span>
               </div>
-              <div className="p-3 bg-slate-900/90 rounded-xl border border-slate-800 flex items-center gap-2">
-                <Truck className="w-4 h-4 text-blue-400" />
-                <span>24-48h Delivery</span>
+              <div className="text-right">
+                <span className="text-[10px] text-blue-300 font-semibold uppercase block">
+                  Monthly (16 Mo)
+                </span>
+                <span className="font-black text-amber-300 text-sm sm:text-base">
+                  Rs. 16,875 <span className="text-xs text-slate-300">/mo</span>
+                </span>
               </div>
             </div>
+
+            <button
+              onClick={onExploreClick}
+              className="w-full py-2.5 bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+            >
+              <span>View Full Specs & Apply</span>
+              <ChevronRight className="w-4 h-4 text-blue-300" />
+            </button>
+
           </div>
         </div>
+
       </div>
     </section>
   );

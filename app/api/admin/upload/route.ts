@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import { cookies } from 'next/headers';
 
 export async function POST(request: Request) {
   try {
+    // Authenticate admin session
+    const cookieStore = await cookies();
+    const adminSession = cookieStore.get('admin_session')?.value;
+    if (adminSession !== 'authenticated') {
+      return NextResponse.json({ error: 'Unauthorized. Admin session required.' }, { status: 401 });
+    }
+
     const formData = await request.formData();
     const file = formData.get('file') as File | null;
 

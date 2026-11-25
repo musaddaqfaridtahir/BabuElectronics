@@ -8,17 +8,17 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb', // Tech Electric Blue matching Logo
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50: '#f0f7ff',
+          100: '#e0effe',
+          200: '#bae0fd',
+          300: '#7cc5fb',
+          400: '#38a5f8',
+          500: '#016cf8', // Exact primary Electric Tech Blue from logo.png
+          600: '#005bd9',
+          700: '#0048b0',
+          800: '#033d8e',
+          900: '#093475',
+          950: '#06204c',
         },
       },
     },

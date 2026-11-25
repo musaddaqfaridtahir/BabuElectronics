@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { createSlug } from '@/lib/slugify';
 
 export async function GET(request: Request) {
   try {
@@ -11,15 +12,16 @@ export async function GET(request: Request) {
     if (categoryId) where.categoryId = categoryId;
     if (isFeatured === 'true') where.isFeatured = true;
 
-    const products = await prisma.product.findMany({
+    let products = await prisma.product.findMany({
       where,
       include: { category: true },
       orderBy: { createdAt: 'desc' },
     });
 
-    return NextResponse.json(products);
+    return NextResponse.json(products || []);
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
+    console.error('Prisma DB lookup error:', error);
+    return NextResponse.json([], { status: 500 });
   }
 }
 
@@ -40,21 +42,41 @@ export async function POST(request: Request) {
       stock,
     } = body;
 
-    if (!title || !slug || !categoryId || !cashPrice || !installmentPrice) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    if (!title || !categoryId || cashPrice === undefined || installmentPrice === undefined) {
+      return NextResponse.json({ error: 'Missing required fields (Title, Category, Prices)' }, { status: 400 });
+    }
+
+    // Robust slug generation
+    let finalSlug = slug ? createSlug(slug) : createSlug(title);
+    if (!finalSlug) {
+      finalSlug = `product-${Date.now()}`;
+    }
+
+    // Handle duplicate slug gracefully
+    const existing = await prisma.product.findUnique({ where: { slug: finalSlug } });
+    if (existing) {
+      finalSlug = `${finalSlug}-${Math.floor(1000 + Math.random() * 9000)}`;
+    }
+
+    // Ensure specsJson is properly stringified
+    let finalSpecs = '{}';
+    if (typeof specsJson === 'string') {
+      finalSpecs = specsJson;
+    } else if (specsJson && typeof specsJson === 'object') {
+      finalSpecs = JSON.stringify(specsJson);
     }
 
     const product = await prisma.product.create({
       data: {
-        title,
-        slug,
+        title: title.trim(),
+        slug: finalSlug,
         categoryId,
         cashPrice: Number(cashPrice),
         installmentPrice: Number(installmentPrice),
         downpaymentBase: Number(downpaymentBase) || 0,
         durationMonths: Number(durationMonths) || 12,
         imageUrl: imageUrl || '',
-        specsJson: specsJson || '{}',
+        specsJson: finalSpecs,
         isFeatured: Boolean(isFeatured),
         stock: Number(stock) || 1,
       },
@@ -62,6 +84,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
+    console.error('Failed to create product:', error);
     return NextResponse.json({ error: 'Failed to create product' }, { status: 500 });
   }
 }

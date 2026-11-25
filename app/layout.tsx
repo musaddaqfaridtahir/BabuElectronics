@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://babuelectronics.com'),
   title: "Babu Electronics Pakpattan | Cash & Easy Installment Store",
   description: "Buy Motorbikes, EVs, Refrigerators, LEDs, ACs, Washing Machines, Microwave Ovens, Water Dispensers & Mobiles on easy 6 to 16-month installments in Pakpattan.",
   keywords: [
@@ -86,13 +88,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#016cf8" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Babu Electronics" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
         />
       </head>
-      <body className="antialiased bg-slate-950 text-slate-100 min-h-screen">
+      <body className="antialiased bg-slate-50 text-slate-900 min-h-screen selection:bg-blue-600 selection:text-white">
         {children}
+        <PWAInstallPrompt />
       </body>
     </html>
   );

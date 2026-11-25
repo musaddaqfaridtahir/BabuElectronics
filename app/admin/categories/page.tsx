@@ -114,6 +114,7 @@ export default function AdminCategoriesPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formName.trim(),
+          slug: editingCategory ? editingCategory.slug : undefined,
           image: formImage || null,
         }),
       });
