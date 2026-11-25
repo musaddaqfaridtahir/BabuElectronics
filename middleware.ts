@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
 
   // 2. Protect Admin API endpoints (like /api/admin/upload)
   if (pathname.startsWith('/api/admin')) {
-    const publicAdminApis = ['/api/admin/login', '/api/admin/logout'];
+    const publicAdminApis = ['/api/admin/login', '/api/admin/logout', '/api/admin/check-session'];
     if (!publicAdminApis.includes(pathname)) {
       if (!isAuthenticated) {
         return NextResponse.json(

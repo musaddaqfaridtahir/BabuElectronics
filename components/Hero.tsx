@@ -52,29 +52,29 @@ export default function Hero({ onExploreClick }: HeroProps) {
           </div>
 
           {/* 3 Pillar Features */}
-          <div className="grid grid-cols-3 gap-2.5 sm:gap-3.5 pt-1">
-            <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-blue-400/30 transition-all text-center sm:text-left">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center mb-2 mx-auto sm:mx-0">
-                <CreditCard className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+          <div className="grid grid-cols-3 gap-2 sm:gap-3.5 pt-1">
+            <div className="p-2.5 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-blue-400/30 transition-all text-center sm:text-left">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center mb-1.5 sm:mb-2 mx-auto sm:mx-0">
+                <CreditCard className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
               </div>
-              <h4 className="text-xs sm:text-sm font-black text-white">6 to 16 Months</h4>
-              <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">Flexible Installments</p>
+              <h4 className="text-[11px] sm:text-sm font-black text-white">6 to 16 Months</h4>
+              <p className="text-[9px] sm:text-xs text-slate-400 font-medium mt-0.5">Easy Installments</p>
             </div>
 
-            <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-emerald-400/30 transition-all text-center sm:text-left">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-2 mx-auto sm:mx-0">
-                <ShieldCheck className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+            <div className="p-2.5 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-emerald-400/30 transition-all text-center sm:text-left">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-1.5 sm:mb-2 mx-auto sm:mx-0">
+                <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
               </div>
-              <h4 className="text-xs sm:text-sm font-black text-white">CNIC Approval</h4>
-              <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">Fast 24-48h Check</p>
+              <h4 className="text-[11px] sm:text-sm font-black text-white">CNIC Approval</h4>
+              <p className="text-[9px] sm:text-xs text-slate-400 font-medium mt-0.5">Fast 24-48h Check</p>
             </div>
 
-            <div className="p-3 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-indigo-400/30 transition-all text-center sm:text-left">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center mb-2 mx-auto sm:mx-0">
-                <Award className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+            <div className="p-2.5 sm:p-4 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 hover:border-indigo-400/30 transition-all text-center sm:text-left">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center mb-1.5 sm:mb-2 mx-auto sm:mx-0">
+                <Award className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
               </div>
-              <h4 className="text-xs sm:text-sm font-black text-white">100% Genuine</h4>
-              <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5">Company Warranty</p>
+              <h4 className="text-[11px] sm:text-sm font-black text-white">100% Genuine</h4>
+              <p className="text-[9px] sm:text-xs text-slate-400 font-medium mt-0.5">Company Warranty</p>
             </div>
           </div>
 
@@ -123,7 +123,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
             {/* Product Image Stage */}
             <div className="h-44 sm:h-52 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 p-4 flex items-center justify-center border border-white/10 relative overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80"
+                src="/uploads/honda/honda-cg125s-self-start.webp"
                 alt="Honda CG 125 Self Start"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src = '/logo.png';
@@ -131,7 +131,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
                 className="h-full object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300"
               />
               <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-[9px] font-bold text-slate-200 border border-white/10">
-                Self Start Model
+                Self Start 2025 Model
               </span>
             </div>
 

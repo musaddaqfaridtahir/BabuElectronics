@@ -92,23 +92,23 @@ export default function Navbar({
         <div className="flex items-center justify-between gap-3 sm:gap-6">
           
           {/* Brand Logo & Name */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group min-w-0">
-            <div className="h-11 sm:h-14 w-auto flex items-center justify-center shrink-0">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3.5 shrink-0 group min-w-0">
+            <div className="h-10 sm:h-14 w-auto flex items-center justify-center shrink-0">
               <img
                 src="/logo.png"
                 alt="Babu Electronics"
-                className="h-11 sm:h-14 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform duration-200"
+                className="h-10 sm:h-14 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform duration-200"
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <div className="flex items-center gap-1.5">
-                <span className="text-base sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <span className="text-sm xs:text-base sm:text-2xl font-black tracking-tight text-slate-900 leading-none whitespace-nowrap">
                   BABU <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">ELECTRONICS</span>
                 </span>
-                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 shrink-0 fill-blue-50" />
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-blue-600 shrink-0 fill-blue-50" />
               </div>
-              <span className="text-[10px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-1 flex items-center gap-1 truncate">
-                <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-600 shrink-0" />
+              <span className="text-[9px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-0.5 sm:mt-1 flex items-center gap-1 truncate">
+                <MapPin className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-blue-600 shrink-0" />
                 <span className="truncate">Sahiwal Rd, Pakpattan</span>
               </span>
             </div>
@@ -160,7 +160,7 @@ export default function Navbar({
             <a
               href="tel:+923004191281"
               aria-label="Call Store"
-              className="p-2 text-slate-700 rounded-xl bg-slate-100 border border-slate-200/80 active:bg-slate-200"
+              className="p-2 text-slate-700 rounded-xl bg-slate-100 border border-slate-200/80 active:scale-95 transition-transform hover:bg-slate-200"
             >
               <Phone className="w-4 h-4 text-blue-600" />
             </a>
@@ -170,14 +170,14 @@ export default function Navbar({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp Store"
-              className="p-2 text-emerald-600 rounded-xl bg-emerald-50 border border-emerald-200 active:bg-emerald-100"
+              className="p-2 text-emerald-600 rounded-xl bg-emerald-50 border border-emerald-200 active:scale-95 transition-transform hover:bg-emerald-100"
             >
               <WhatsAppIcon className="w-4 h-4" size={16} />
             </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 rounded-xl bg-slate-100 border border-slate-200/80 active:bg-slate-200"
+              className="p-2 text-slate-700 rounded-xl bg-slate-100 border border-slate-200/80 active:scale-95 transition-transform hover:bg-slate-200"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-4 h-4 text-slate-900" /> : <Menu className="w-4 h-4 text-slate-900" />}

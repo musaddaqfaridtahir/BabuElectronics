@@ -36,12 +36,21 @@ export default function PWAInstallPrompt() {
     // Check if previously dismissed in this session
     const hasDismissed = sessionStorage.getItem('babu_pwa_dismissed');
 
-    // Timer: Trigger prompt after 12 seconds (between 10 to 15 seconds)
-    const timer = setTimeout(() => {
-      if (!isInStandaloneMode && !hasDismissed) {
-        setShowPrompt(true);
-      }
-    }, 12000); // 12 seconds
+    // ONLY check and trigger install prompt if user is logged in as ADMIN
+    let timer: any = null;
+    fetch('/api/admin/check-session')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.isAdmin) {
+          // Timer: Trigger prompt after 10-12 seconds ONLY for authenticated Admin
+          timer = setTimeout(() => {
+            if (!isInStandaloneMode && !hasDismissed) {
+              setShowPrompt(true);
+            }
+          }, 10000);
+        }
+      })
+      .catch(() => {});
 
     // Register Service Worker for PWA compliance
     if ('serviceWorker' in navigator) {
@@ -53,7 +62,7 @@ export default function PWAInstallPrompt() {
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-      clearTimeout(timer);
+      if (timer) clearTimeout(timer);
     };
   }, []);
 
