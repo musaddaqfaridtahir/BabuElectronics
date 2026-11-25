@@ -268,10 +268,10 @@ export default function HomePageClient({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
             <div className="lg:col-span-5 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-auto flex items-center justify-center shrink-0">
-                  <img src="/logo.png" alt="Babu Electronics Logo" className="h-10 w-auto object-contain" />
+                <div className="h-12 sm:h-14 w-auto flex items-center justify-center shrink-0">
+                  <img src="/logo.png" alt="Babu Electronics Logo" className="h-12 sm:h-14 w-auto object-contain drop-shadow-xs" />
                 </div>
-                <span className="font-black text-slate-900 text-base sm:text-lg tracking-tight">
+                <span className="font-black text-slate-900 text-lg sm:text-2xl tracking-tight">
                   BABU <span className="text-blue-600">ELECTRONICS</span>
                 </span>
               </div>

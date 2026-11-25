@@ -92,19 +92,23 @@ export default function Navbar({
         <div className="flex items-center justify-between gap-3 sm:gap-6">
           
           {/* Brand Logo & Name */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group min-w-0">
-            <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-xl bg-slate-50 border border-slate-200/90 flex items-center justify-center p-1.5 shrink-0 shadow-2xs group-hover:border-blue-500/40 transition-colors">
-              <img src="/logo.png" alt="Babu Electronics" className="h-full w-full object-contain" />
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group min-w-0">
+            <div className="h-11 sm:h-14 w-auto flex items-center justify-center shrink-0">
+              <img
+                src="/logo.png"
+                alt="Babu Electronics"
+                className="h-11 sm:h-14 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform duration-200"
+              />
             </div>
             <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-base sm:text-xl font-black tracking-tight text-slate-900 leading-none">
+                <span className="text-base sm:text-2xl font-black tracking-tight text-slate-900 leading-none">
                   BABU <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">ELECTRONICS</span>
                 </span>
-                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 shrink-0 fill-blue-50" />
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 shrink-0 fill-blue-50" />
               </div>
-              <span className="text-[9px] sm:text-[10px] text-slate-500 font-bold tracking-wider uppercase mt-1 flex items-center gap-1 truncate">
-                <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 shrink-0" />
+              <span className="text-[10px] sm:text-xs text-slate-500 font-bold tracking-wider uppercase mt-1 flex items-center gap-1 truncate">
+                <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-600 shrink-0" />
                 <span className="truncate">Sahiwal Rd, Pakpattan</span>
               </span>
             </div>
