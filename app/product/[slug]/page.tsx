@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import ProductDetailClient from '@/components/ProductDetailClient';
 import { calculateInstallmentPlan } from '@/lib/installments';
+import { fallbackCatalogProducts } from '@/lib/catalogBackup';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -11,10 +12,14 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = await prisma.product.findUnique({
+  let product: any = await prisma.product.findUnique({
     where: { slug },
     include: { category: true },
-  });
+  }).catch(() => null);
+
+  if (!product) {
+    product = (fallbackCatalogProducts as any[]).find((p) => p.slug === slug);
+  }
 
   if (!product) {
     return {
@@ -53,23 +58,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ProductDetailPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const product = await prisma.product.findUnique({
+  let product: any = await prisma.product.findUnique({
     where: { slug },
     include: { category: true },
-  });
+  }).catch(() => null);
+
+  if (!product) {
+    product = (fallbackCatalogProducts as any[]).find((p) => p.slug === slug);
+  }
 
   if (!product) {
     notFound();
   }
 
-  const relatedProducts = await prisma.product.findMany({
+  let relatedProducts: any[] = await prisma.product.findMany({
     where: {
       categoryId: product.categoryId,
       id: { not: product.id },
     },
     take: 3,
     include: { category: true },
-  });
+  }).catch(() => []);
+
+  if (!relatedProducts || relatedProducts.length === 0) {
+    relatedProducts = (fallbackCatalogProducts as any[])
+      .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
+      .slice(0, 3);
+  }
 
   // Schema.org Product JSON-LD structured data for Google Search SEO
   const jsonLd = {

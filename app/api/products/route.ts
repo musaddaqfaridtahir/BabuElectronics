@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { createSlug } from '@/lib/slugify';
+import { fallbackCatalogProducts } from '@/lib/catalogBackup';
 
 export async function GET(request: Request) {
   try {
@@ -16,12 +17,19 @@ export async function GET(request: Request) {
       where,
       include: { category: true },
       orderBy: { createdAt: 'desc' },
-    });
+    }).catch(() => []);
 
-    return NextResponse.json(products || []);
+    if (!products || products.length === 0) {
+      let filtered = fallbackCatalogProducts;
+      if (categoryId) filtered = filtered.filter((p: any) => p.categoryId === categoryId);
+      if (isFeatured === 'true') filtered = filtered.filter((p: any) => p.isFeatured === true);
+      return NextResponse.json(filtered);
+    }
+
+    return NextResponse.json(products);
   } catch (error) {
-    console.error('Prisma DB lookup error:', error);
-    return NextResponse.json([], { status: 500 });
+    console.error('Prisma DB lookup error, using fallback catalog:', error);
+    return NextResponse.json(fallbackCatalogProducts || []);
   }
 }
 
