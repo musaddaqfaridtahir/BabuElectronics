@@ -53,7 +53,7 @@ export default function ProductCard({ product, onApplyInstallment }: ProductCard
   const whatsappUrl = `https://wa.me/923001122782?text=${whatsappMessage}`;
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs hover:shadow-2xl hover:border-blue-400 hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col justify-between group font-sans h-full animate-fade-in-up">
+    <div className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-200 ease-out flex flex-col justify-between group font-sans h-full">
       
       <div>
         {/* Product Image Stage (Optimized for Mobile & Desktop) */}
@@ -65,20 +65,21 @@ export default function ProductCard({ product, onApplyInstallment }: ProductCard
             src={product.imageUrl}
             alt={product.title}
             loading="lazy"
+            decoding="async"
             onError={(e) => {
               e.currentTarget.onerror = null;
               e.currentTarget.src = '/logo.png';
             }}
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 ease-out"
           />
 
           {/* Category Tag */}
-          <span className="absolute top-2 left-2 px-2 py-0.5 bg-white/95 backdrop-blur-md border border-slate-200/90 text-slate-700 text-[8px] sm:text-[10px] font-bold rounded-md sm:rounded-lg uppercase truncate max-w-[85px] sm:max-w-[120px] shadow-2xs group-hover:border-blue-400 transition-colors">
+          <span className="absolute top-2 left-2 px-2 py-0.5 bg-white border border-slate-200/90 text-slate-700 text-[8px] sm:text-[10px] font-bold rounded-md sm:rounded-lg uppercase truncate max-w-[85px] sm:max-w-[120px] shadow-2xs group-hover:border-blue-400 transition-colors">
             {product.category?.name || 'Electronics'}
           </span>
 
           {/* Markup Tier Badge */}
-          <span className="absolute top-2 right-2 px-1.5 sm:px-2 py-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold text-[8px] sm:text-[10px] rounded-md sm:rounded-lg flex items-center gap-0.5 uppercase shadow-xs shadow-blue-500/20 shimmer-badge">
+          <span className="absolute top-2 right-2 px-1.5 sm:px-2 py-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold text-[8px] sm:text-[10px] rounded-md sm:rounded-lg flex items-center gap-0.5 uppercase shadow-xs shadow-blue-500/20">
             <Percent className="w-2.5 h-2.5" />
             <span>{plan.markupRatePercentage}% Markup</span>
           </span>

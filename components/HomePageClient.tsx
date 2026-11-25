@@ -38,6 +38,7 @@ export default function HomePageClient({
 
   const [selectedProductForModal, setSelectedProductForModal] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(16);
 
   // Background refresh to catch any newly added products from admin panel
   useEffect(() => {
@@ -67,6 +68,7 @@ export default function HomePageClient({
 
   const handleCategorySelect = (slug: string) => {
     setSelectedCategory(slug);
+    setVisibleCount(16);
     if (slug === 'all') {
       const el = document.getElementById('categories-section');
       el?.scrollIntoView({ behavior: 'smooth' });
@@ -168,15 +170,32 @@ export default function HomePageClient({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onApplyInstallment={handleApplyInstallment}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5">
+              {filteredProducts.slice(0, visibleCount).map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onApplyInstallment={handleApplyInstallment}
+                />
+              ))}
+            </div>
+
+            {/* Progressive Loading: Fast 60 FPS Smooth Scrolling on Phones */}
+            {filteredProducts.length > visibleCount && (
+              <div className="pt-6 sm:pt-8 text-center">
+                <button
+                  onClick={() => setVisibleCount((prev) => prev + 16)}
+                  className="px-6 sm:px-8 py-3 bg-white hover:bg-slate-100 border border-slate-300 hover:border-blue-500 text-slate-800 font-extrabold text-xs sm:text-sm rounded-2xl shadow-xs transition-all active:scale-95 cursor-pointer inline-flex items-center gap-2"
+                >
+                  <span>Load More Products (مزید پروڈکٹس دیکھیں)</span>
+                  <span className="text-[10px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full font-bold border border-blue-200">
+                    Showing {Math.min(visibleCount, filteredProducts.length)} of {filteredProducts.length}
+                  </span>
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
 

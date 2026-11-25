@@ -58,27 +58,19 @@ export default function Navbar({
       {/* Top Brand Notification Strip */}
       <div className="bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 text-white text-[11px] py-1.5 px-3 sm:px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 truncate">
-            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold text-[9px] border border-blue-400/30 uppercase tracking-wider shrink-0">
-              <Sparkles className="w-2.5 h-2.5 text-blue-300" />
-              Pakpattan Showroom
+          <div className="flex items-center gap-1.5 truncate min-w-0">
+            <span className="text-slate-200 font-bold tracking-tight truncate hidden sm:inline">
+              Easy 6 to 16 Month Monthly Installments with Fast Local CNIC Verification
             </span>
-            <span className="text-slate-300 font-medium truncate hidden sm:inline">
-              Easy 6 to 16 Month Installment Plans with Fast Local CNIC Verification
-            </span>
-            <span className="text-slate-300 font-medium truncate sm:hidden">
+            <span className="text-slate-200 font-bold tracking-tight truncate sm:hidden">
               Easy 6-16 Month Monthly Installments
             </span>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 text-slate-300 text-[10px] sm:text-[11px] font-semibold">
-            <span className="hidden md:flex items-center gap-1">
-              <Clock className="w-3 h-3 text-blue-400" />
-              9:00 AM - 9:00 PM
-            </span>
+          <div className="flex items-center gap-2.5 shrink-0 text-[10px] sm:text-[11px] font-bold">
             <a
               href="tel:+923004191281"
-              className="hover:text-blue-300 flex items-center gap-1 transition-colors"
+              className="text-white hover:text-blue-300 flex items-center gap-1.5 transition-colors bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded-lg border border-white/10"
             >
               <Phone className="w-3 h-3 text-emerald-400" />
               <span>0300-4191281</span>

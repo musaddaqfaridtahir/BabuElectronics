@@ -36,21 +36,12 @@ export default function PWAInstallPrompt() {
     // Check if previously dismissed in this session
     const hasDismissed = sessionStorage.getItem('babu_pwa_dismissed');
 
-    // ONLY check and trigger install prompt if user is logged in as ADMIN
-    let timer: any = null;
-    fetch('/api/admin/check-session')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.isAdmin) {
-          // Timer: Trigger prompt after 10-12 seconds ONLY for authenticated Admin
-          timer = setTimeout(() => {
-            if (!isInStandaloneMode && !hasDismissed) {
-              setShowPrompt(true);
-            }
-          }, 10000);
-        }
-      })
-      .catch(() => {});
+    // Timer: Trigger prompt after 12 seconds for visitors & users
+    const timer = setTimeout(() => {
+      if (!isInStandaloneMode && !hasDismissed) {
+        setShowPrompt(true);
+      }
+    }, 12000);
 
     // Register Service Worker for PWA compliance
     if ('serviceWorker' in navigator) {
@@ -101,8 +92,8 @@ export default function PWAInstallPrompt() {
 
         {/* Header with App Logo & Title */}
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-white border border-blue-200 p-1.5 flex items-center justify-center shrink-0 shadow-sm">
-            <img src="/logo.png" alt="Babu Electronics App Icon" className="w-full h-full object-contain" />
+          <div className="w-12 h-12 rounded-2xl bg-white border border-blue-200 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
+            <img src="/icon-192.png" alt="Babu Electronics App Icon" className="w-full h-full object-cover rounded-xl" />
           </div>
 
           <div className="min-w-0 pr-6">
