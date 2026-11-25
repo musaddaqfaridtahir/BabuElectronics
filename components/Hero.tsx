@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { CreditCard, ShieldCheck, MapPin, CheckCircle2, ArrowDown, Sparkles, Star, Award, ChevronRight } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -101,9 +102,12 @@ export default function Hero({ onExploreClick }: HeroProps) {
 
         </div>
 
-        {/* Right Column: Featured Flagship Product Showcase Card */}
+        {/* Right Column: Featured Flagship Product Showcase Card (Clickable to Full Specs) */}
         <div className="lg:col-span-5">
-          <div className="bg-white/[0.08] backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl relative group animate-float hover:border-blue-400/40 transition-all duration-300">
+          <Link
+            href="/product/honda-cg-125-self-start-2025"
+            className="block bg-white/[0.08] backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl relative group animate-float hover:border-blue-400/50 hover:bg-white/[0.12] transition-all duration-300"
+          >
             
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-2">
@@ -112,7 +116,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
                 <span className="text-[11px] font-black tracking-wider text-slate-200 uppercase">
-                  Flagship Product
+                  Flagship Showcase
                 </span>
               </div>
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-extrabold uppercase shimmer-badge">
@@ -137,7 +141,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
 
             {/* Product Title & Cash Price */}
             <div className="space-y-1">
-              <h3 className="text-base sm:text-lg font-black text-white">
+              <h3 className="text-base sm:text-lg font-black text-white group-hover:text-blue-300 transition-colors">
                 Honda CG 125 Self Start (2025 Model)
               </h3>
               <div className="flex items-center justify-between text-xs">
@@ -146,33 +150,30 @@ export default function Hero({ onExploreClick }: HeroProps) {
               </div>
             </div>
 
-            {/* Installment Breakdown Box */}
+            {/* Installment Breakdown Box (30% Advance & Round Monthly) */}
             <div className="p-3.5 rounded-2xl bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-400/20 flex justify-between items-center text-xs">
               <div>
                 <span className="text-[10px] text-blue-300 font-semibold uppercase block">
-                  Advance Downpayment
+                  30% Advance Downpayment
                 </span>
-                <span className="font-black text-white text-sm">Rs. 50,000</span>
+                <span className="font-black text-white text-sm">Rs. 85,500</span>
               </div>
               <div className="text-right">
                 <span className="text-[10px] text-blue-300 font-semibold uppercase block">
                   Monthly (16 Mo)
                 </span>
                 <span className="font-black text-amber-300 text-sm sm:text-base">
-                  Rs. 16,875 <span className="text-xs text-slate-300">/mo</span>
+                  Rs. 16,000 <span className="text-xs text-slate-300">/mo</span>
                 </span>
               </div>
             </div>
 
-            <button
-              onClick={onExploreClick}
-              className="w-full py-2.5 bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-            >
-              <span>View Full Specs & Apply</span>
-              <ChevronRight className="w-4 h-4 text-blue-300" />
-            </button>
+            <div className="w-full py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 group-hover:from-blue-600 group-hover:to-indigo-700 text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-95">
+              <span>View Full Specs & Model Colors</span>
+              <ChevronRight className="w-4 h-4 text-white" />
+            </div>
 
-          </div>
+          </Link>
         </div>
 
       </div>

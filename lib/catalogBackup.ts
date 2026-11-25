@@ -1,4 +1,232 @@
+/**
+ * BAKED CATALOG BACKUP
+ * Synchronized with Babu Electronics inventory database.
+ * Total Products: 127
+ * Total Categories: 10
+ */
+
+export const fallbackCatalogCategories = [
+  {
+    "id": "cmssmz6hd0004vjdw78wxdbn6",
+    "name": "Air Conditioners",
+    "slug": "air-conditioners"
+  },
+  {
+    "id": "cmssmz6gw0001vjdwbuujxi4y",
+    "name": "Electric Vehicles",
+    "slug": "electric-vehicles"
+  },
+  {
+    "id": "cmssogzx00009vjvsjtiggs7w",
+    "name": "Kitchen & Home Appliances",
+    "slug": "home-appliances"
+  },
+  {
+    "id": "cmssmz6h70003vjdwnm2ue6ud",
+    "name": "LEDs & Smart TVs",
+    "slug": "leds-smart-tvs"
+  },
+  {
+    "id": "cmssogzwq0007vjvsa05vts4p",
+    "name": "Microwave Ovens",
+    "slug": "microwave-ovens"
+  },
+  {
+    "id": "cmssmz6hi0005vjdwwrejbibn",
+    "name": "Mobiles & Tablets",
+    "slug": "mobiles"
+  },
+  {
+    "id": "cmssmz6gq0000vjdw9e6kxlh2",
+    "name": "Motorbikes",
+    "slug": "motorbikes"
+  },
+  {
+    "id": "cmssmz6h20002vjdw806zq83v",
+    "name": "Refrigerators & Freezers",
+    "slug": "refrigerators"
+  },
+  {
+    "id": "cmssogzwh0005vjvsldha5ofk",
+    "name": "Washing Machines",
+    "slug": "washing-machines"
+  },
+  {
+    "id": "cmssogzwv0008vjvsyqo2w4nt",
+    "name": "Water Dispensers",
+    "slug": "water-dispensers"
+  }
+];
+
 export const fallbackCatalogProducts = [
+  {
+    "id": "cmwvzkve5000frrmccgevepnp",
+    "title": "Vivo Y03 (Budget King)",
+    "slug": "vivo-y03",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 24999,
+    "installmentPrice": 29100,
+    "downpaymentBase": 7500,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-y03.jpg",
+    "specsJson": "{\"Processor\":\"MediaTek Helio G85 Gaming Processor\",\"Camera\":\"13MP AI Dual Camera\",\"Battery\":\"5000mAh Long-Lasting Battery (15W)\",\"Display\":\"90Hz Sunlight Display (TÜV Rheinland Certified)\",\"RAM & Storage\":\"4GB (+4GB Extended) / 64GB\",\"Colors\":\"Space Black, Gem Green\"}",
+    "isFeatured": false,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.685Z",
+    "updatedAt": "2026-11-25T10:34:16.685Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvdw000drrmcfr1dfhm6",
+    "title": "Vivo Y18 (Sunlight Display)",
+    "slug": "vivo-y18",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 31999,
+    "installmentPrice": 37200,
+    "downpaymentBase": 9600,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-y18.jpg",
+    "specsJson": "{\"Processor\":\"MediaTek Helio G85\",\"Camera\":\"50MP Ultra Clear AI Camera\",\"Battery\":\"5000mAh Long-Lasting Battery\",\"Display\":\"90Hz Sunlight Eye-Protection Display\",\"RAM & Storage\":\"6GB (+6GB Extended) / 128GB\",\"Colors\":\"Wave Aqua, Mocha Brown\"}",
+    "isFeatured": false,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.676Z",
+    "updatedAt": "2026-11-25T10:34:16.676Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvdn000brrmcku72dyvj",
+    "title": "Vivo Y28 (6000mAh Monster Battery)",
+    "slug": "vivo-y28",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 49999,
+    "installmentPrice": 58200,
+    "downpaymentBase": 15000,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-y28.png",
+    "specsJson": "{\"Processor\":\"MediaTek Helio G85 Gaming Processor\",\"Camera\":\"50MP Ultra Clear + Dynamic Light\",\"Battery\":\"6000mAh 4-Year Health Battery (44W FlashCharge)\",\"Display\":\"90Hz High Brightness (1000 nits)\",\"RAM & Storage\":\"8GB (+8GB Extended) / 128GB\",\"Colors\":\"Gleaming Orange, Agate Green\"}",
+    "isFeatured": false,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.667Z",
+    "updatedAt": "2026-11-25T10:34:16.667Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvdc0009rrmcr2o1dm7i",
+    "title": "Vivo Y100 4G (120Hz AMOLED)",
+    "slug": "vivo-y100",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 55999,
+    "installmentPrice": 66000,
+    "downpaymentBase": 16800,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-y100.png",
+    "specsJson": "{\"Processor\":\"Snapdragon 685 (6nm)\",\"Camera\":\"50MP Ultra Clear + Flicker Sensor\",\"Battery\":\"5000mAh (80W FlashCharge)\",\"Display\":\"120Hz Ultra Vision AMOLED (Dual Stereo Speakers)\",\"RAM & Storage\":\"8GB (+8GB Extended) / 256GB\",\"Colors\":\"Crystal Black, Breeze Green\"}",
+    "isFeatured": false,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.656Z",
+    "updatedAt": "2026-11-25T10:34:16.656Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvd20007rrmckeph145c",
+    "title": "Vivo V30e (Aura Light Portrait)",
+    "slug": "vivo-v30e",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 86999,
+    "installmentPrice": 101700,
+    "downpaymentBase": 26100,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-v30e.jpg",
+    "specsJson": "{\"Processor\":\"Snapdragon 6 Gen 1 (4nm)\",\"Camera\":\"50MP Sony IMX882 + Studio Aura Light\",\"Battery\":\"5500mAh Ultra-Slim (44W FlashCharge)\",\"Display\":\"120Hz 3D Curved AMOLED\",\"RAM & Storage\":\"8GB (+8GB Extended) / 256GB\",\"Colors\":\"Velvet Red, Silk Blue\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.646Z",
+    "updatedAt": "2026-11-25T10:34:16.646Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvcs0005rrmcgh682uks",
+    "title": "Vivo V30 5G (Studio Aura Light)",
+    "slug": "vivo-v30-5g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 129999,
+    "installmentPrice": 153000,
+    "downpaymentBase": 39000,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-v30.png",
+    "specsJson": "{\"Processor\":\"Snapdragon 7 Gen 3\",\"Camera\":\"50MP VCS True Color OIS + 50MP AF Ultra Wide\",\"Battery\":\"5000mAh (80W FlashCharge)\",\"Display\":\"1.5K 120Hz 3D Curved AMOLED\",\"RAM & Storage\":\"12GB (+12GB Extended) / 256GB\",\"Colors\":\"Peacock Green, Waving Aqua, Noble Black\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.636Z",
+    "updatedAt": "2026-11-25T10:34:16.636Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvci0003rrmcakrb3kwn",
+    "title": "Vivo V40 Lite 5G",
+    "slug": "vivo-v40-lite",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 67999,
+    "installmentPrice": 80400,
+    "downpaymentBase": 20400,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-v40.png",
+    "specsJson": "{\"Processor\":\"Snapdragon 4 Gen 2\",\"Camera\":\"50MP Sony IMX882 + AI Aura Light\",\"Battery\":\"5000mAh (80W FlashCharge)\",\"Display\":\"120Hz Ultra Vision AMOLED (1800 nits)\",\"RAM & Storage\":\"8GB (+8GB Extended) / 128GB\",\"Colors\":\"Titanium Silver, Dynamic Black\"}",
+    "isFeatured": false,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.626Z",
+    "updatedAt": "2026-11-25T10:34:16.626Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
+  {
+    "id": "cmwvzkvb80001rrmcd1dfkq3a",
+    "title": "Vivo V40 5G (ZEISS Optics)",
+    "slug": "vivo-v40-5g",
+    "categoryId": "cmssmz6hi0005vjdwwrejbibn",
+    "cashPrice": 139999,
+    "installmentPrice": 164400,
+    "downpaymentBase": 42000,
+    "durationMonths": 12,
+    "imageUrl": "/uploads/vivo/vivo-v40.png",
+    "specsJson": "{\"Processor\":\"Snapdragon 7 Gen 3 (4nm)\",\"Camera\":\"ZEISS 50MP OIS + 50MP Ultra Wide + 50MP Selfie\",\"Battery\":\"5500mAh BlueVolt (80W FlashCharge)\",\"Display\":\"1.5K 120Hz 3D Curved AMOLED\",\"RAM & Storage\":\"12GB (+12GB Extended) / 256GB\",\"Colors\":\"Stellar Silver, Moonlight White, Nebula Purple\"}",
+    "isFeatured": true,
+    "stock": 12,
+    "createdAt": "2026-11-25T10:34:16.579Z",
+    "updatedAt": "2026-11-25T10:34:16.579Z",
+    "category": {
+      "id": "cmssmz6hi0005vjdwwrejbibn",
+      "name": "Mobiles & Tablets",
+      "slug": "mobiles"
+    }
+  },
   {
     "id": "cmwvvqnzl004xrrwcvw67u41z",
     "title": "Haier Microwave Oven HMW-25MXP9",
@@ -17,10 +245,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -41,10 +266,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -65,10 +287,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -89,10 +308,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -113,10 +329,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -137,10 +350,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -161,10 +371,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -185,10 +392,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -209,10 +413,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -233,10 +434,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -257,10 +455,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -281,10 +476,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -305,10 +497,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -329,10 +518,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -353,10 +539,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -377,10 +560,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -401,10 +581,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -425,10 +602,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -449,10 +623,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -473,10 +644,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -497,10 +665,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -521,10 +686,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -545,10 +707,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -569,10 +728,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -584,19 +740,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 158760,
     "downpaymentBase": 26460,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.461Z",
-    "updatedAt": "2026-11-25T08:46:48.461Z",
+    "updatedAt": "2026-11-25T10:28:51.736Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -608,19 +761,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 128040,
     "downpaymentBase": 21340,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.456Z",
-    "updatedAt": "2026-11-25T08:46:48.456Z",
+    "updatedAt": "2026-11-25T10:28:51.728Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -632,19 +782,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 92400,
     "downpaymentBase": 15400,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.452Z",
-    "updatedAt": "2026-11-25T08:46:48.452Z",
+    "updatedAt": "2026-11-25T10:28:51.721Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -656,19 +803,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 96000,
     "downpaymentBase": 16000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.448Z",
-    "updatedAt": "2026-11-25T08:46:48.448Z",
+    "updatedAt": "2026-11-25T10:28:51.713Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -680,19 +824,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 90000,
     "downpaymentBase": 15000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.444Z",
-    "updatedAt": "2026-11-25T08:46:48.444Z",
+    "updatedAt": "2026-11-25T10:28:51.705Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -704,19 +845,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 118860,
     "downpaymentBase": 19810,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.440Z",
-    "updatedAt": "2026-11-25T08:46:48.440Z",
+    "updatedAt": "2026-11-25T10:28:51.697Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -728,19 +866,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 100200,
     "downpaymentBase": 16700,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.436Z",
-    "updatedAt": "2026-11-25T08:46:48.436Z",
+    "updatedAt": "2026-11-25T10:28:51.689Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -752,19 +887,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 119879,
     "downpaymentBase": 19980,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.431Z",
-    "updatedAt": "2026-11-25T08:46:48.431Z",
+    "updatedAt": "2026-11-25T10:28:51.681Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -776,19 +908,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 100080,
     "downpaymentBase": 16680,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.426Z",
-    "updatedAt": "2026-11-25T08:46:48.426Z",
+    "updatedAt": "2026-11-25T10:28:51.673Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -800,19 +929,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 68520,
     "downpaymentBase": 11420,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.422Z",
-    "updatedAt": "2026-11-25T08:46:48.422Z",
+    "updatedAt": "2026-11-25T10:28:51.666Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -824,19 +950,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 68520,
     "downpaymentBase": 11420,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.417Z",
-    "updatedAt": "2026-11-25T08:46:48.417Z",
+    "updatedAt": "2026-11-25T10:28:51.657Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -848,19 +971,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 70800,
     "downpaymentBase": 11800,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.413Z",
-    "updatedAt": "2026-11-25T08:46:48.413Z",
+    "updatedAt": "2026-11-25T10:28:51.650Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -872,19 +992,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 83999,
     "downpaymentBase": 14000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.409Z",
-    "updatedAt": "2026-11-25T08:46:48.409Z",
+    "updatedAt": "2026-11-25T10:28:51.642Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -896,19 +1013,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 109200,
     "downpaymentBase": 18200,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.404Z",
-    "updatedAt": "2026-11-25T08:46:48.404Z",
+    "updatedAt": "2026-11-25T10:28:51.635Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -920,19 +1034,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 65999,
     "downpaymentBase": 11000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.400Z",
-    "updatedAt": "2026-11-25T08:46:48.400Z",
+    "updatedAt": "2026-11-25T10:28:51.627Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -944,19 +1055,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 128400,
     "downpaymentBase": 21400,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.396Z",
-    "updatedAt": "2026-11-25T08:46:48.396Z",
+    "updatedAt": "2026-11-25T10:28:51.620Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -968,19 +1076,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 68399,
     "downpaymentBase": 11400,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.392Z",
-    "updatedAt": "2026-11-25T08:46:48.392Z",
+    "updatedAt": "2026-11-25T10:28:51.611Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -992,19 +1097,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 95999,
     "downpaymentBase": 16000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.388Z",
-    "updatedAt": "2026-11-25T08:46:48.388Z",
+    "updatedAt": "2026-11-25T10:28:51.603Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -1016,19 +1118,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 59999,
     "downpaymentBase": 10000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-washer.jpg",
+    "imageUrl": "/uploads/dawlance/dawlance-washer-official.png",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Top Load Washing Machine\",\"Warranty\":\"10 Years Motor Warranty\",\"Features\":\"Energy Saver, Child Lock, Express Wash\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.384Z",
-    "updatedAt": "2026-11-25T08:46:48.384Z",
+    "updatedAt": "2026-11-25T10:28:51.596Z",
     "category": {
       "id": "cmssogzwh0005vjvsldha5ofk",
       "name": "Washing Machines",
-      "slug": "washing-machines",
-      "image": "/uploads/cat-washer.jpg",
-      "createdAt": "2026-08-14T08:21:12.257Z",
-      "updatedAt": "2026-08-14T08:21:12.257Z"
+      "slug": "washing-machines"
     }
   },
   {
@@ -1040,19 +1139,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 97320,
     "downpaymentBase": 16220,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.380Z",
-    "updatedAt": "2026-11-25T08:46:48.380Z",
+    "updatedAt": "2026-11-25T10:28:51.587Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1064,19 +1160,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 97200,
     "downpaymentBase": 16200,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.376Z",
-    "updatedAt": "2026-11-25T08:46:48.376Z",
+    "updatedAt": "2026-11-25T10:28:51.579Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1088,19 +1181,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 87599,
     "downpaymentBase": 14600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-burgundy.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.371Z",
-    "updatedAt": "2026-11-25T08:46:48.371Z",
+    "updatedAt": "2026-11-25T10:28:51.571Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1112,19 +1202,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 80999,
     "downpaymentBase": 13500,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-burgundy.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.367Z",
-    "updatedAt": "2026-11-25T08:46:48.367Z",
+    "updatedAt": "2026-11-25T10:28:51.562Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1136,19 +1223,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 80519,
     "downpaymentBase": 13420,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.363Z",
-    "updatedAt": "2026-11-25T08:46:48.363Z",
+    "updatedAt": "2026-11-25T10:28:51.554Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1160,19 +1244,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 79200,
     "downpaymentBase": 13200,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.358Z",
-    "updatedAt": "2026-11-25T08:46:48.358Z",
+    "updatedAt": "2026-11-25T10:28:51.546Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1184,19 +1265,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 76800,
     "downpaymentBase": 12800,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.353Z",
-    "updatedAt": "2026-11-25T08:46:48.353Z",
+    "updatedAt": "2026-11-25T10:28:51.537Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1208,19 +1286,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 76800,
     "downpaymentBase": 12800,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.348Z",
-    "updatedAt": "2026-11-25T08:46:48.348Z",
+    "updatedAt": "2026-11-25T10:28:51.530Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1232,19 +1307,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 74760,
     "downpaymentBase": 12460,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.344Z",
-    "updatedAt": "2026-11-25T08:46:48.344Z",
+    "updatedAt": "2026-11-25T10:28:51.522Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1256,19 +1328,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 52800,
     "downpaymentBase": 8800,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Single Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.340Z",
-    "updatedAt": "2026-11-25T08:46:48.340Z",
+    "updatedAt": "2026-11-25T10:28:51.514Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1280,19 +1349,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 117599,
     "downpaymentBase": 19600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-inox.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.336Z",
-    "updatedAt": "2026-11-25T08:46:48.336Z",
+    "updatedAt": "2026-11-25T10:28:51.505Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1304,19 +1370,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 71999,
     "downpaymentBase": 12000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.331Z",
-    "updatedAt": "2026-11-25T08:46:48.331Z",
+    "updatedAt": "2026-11-25T10:28:51.497Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1328,19 +1391,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 81599,
     "downpaymentBase": 13600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-silver.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.327Z",
-    "updatedAt": "2026-11-25T08:46:48.327Z",
+    "updatedAt": "2026-11-25T10:28:51.487Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1352,19 +1412,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 111600,
     "downpaymentBase": 18600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-burgundy.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.323Z",
-    "updatedAt": "2026-11-25T08:46:48.323Z",
+    "updatedAt": "2026-11-25T10:28:51.480Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1376,19 +1433,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 299999,
     "downpaymentBase": 50000,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-inox.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"No Frost\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.319Z",
-    "updatedAt": "2026-11-25T08:46:48.319Z",
+    "updatedAt": "2026-11-25T10:28:51.470Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1400,19 +1454,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 117599,
     "downpaymentBase": 19600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-burgundy.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.314Z",
-    "updatedAt": "2026-11-25T08:46:48.314Z",
+    "updatedAt": "2026-11-25T10:28:51.462Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1424,19 +1475,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 105599,
     "downpaymentBase": 17600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-burgundy.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Double Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.310Z",
-    "updatedAt": "2026-11-25T08:46:48.310Z",
+    "updatedAt": "2026-11-25T10:28:51.454Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1448,19 +1496,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 63599,
     "downpaymentBase": 10600,
     "durationMonths": 12,
-    "imageUrl": "/uploads/cat-refrigerator.jpg",
+    "imageUrl": "/uploads/dawlance/ref-inox.webp",
     "specsJson": "{\"Brand\":\"Dawlance\",\"Type\":\"Single Door\",\"Warranty\":\"12 Years Compressor Warranty\",\"Features\":\"Low Voltage Start, Anti-Fungal Gasket, Optimized Cooling\"}",
     "isFeatured": false,
     "stock": 8,
     "createdAt": "2026-11-25T08:46:48.305Z",
-    "updatedAt": "2026-11-25T08:46:48.305Z",
+    "updatedAt": "2026-11-25T10:28:51.446Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -1481,10 +1526,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1505,10 +1547,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1529,10 +1568,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1553,10 +1589,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1577,10 +1610,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1601,10 +1631,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1625,10 +1652,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1649,10 +1673,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1673,10 +1694,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1697,10 +1715,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1721,10 +1736,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1745,10 +1757,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1769,10 +1778,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1793,10 +1799,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1817,10 +1820,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1841,10 +1841,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1865,10 +1862,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1889,10 +1883,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -1913,10 +1904,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -1937,10 +1925,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -1961,10 +1946,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -1985,10 +1967,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2009,10 +1988,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2033,10 +2009,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2057,10 +2030,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2081,10 +2051,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2105,10 +2072,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2129,10 +2093,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2153,10 +2114,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2177,10 +2135,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2201,10 +2156,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2225,10 +2177,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2249,10 +2198,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2273,10 +2219,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2297,10 +2240,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2321,10 +2261,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2345,10 +2282,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2369,10 +2303,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2393,10 +2324,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2417,10 +2345,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2441,10 +2366,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2465,10 +2387,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2489,10 +2408,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2513,10 +2429,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2537,10 +2450,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2561,10 +2471,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2585,10 +2492,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2609,10 +2513,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2633,10 +2534,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
   },
   {
@@ -2657,10 +2555,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzx00009vjvsjtiggs7w",
       "name": "Kitchen & Home Appliances",
-      "slug": "home-appliances",
-      "image": "/uploads/cat-appliances.jpg",
-      "createdAt": "2026-08-14T08:21:12.276Z",
-      "updatedAt": "2026-08-14T08:21:12.276Z"
+      "slug": "home-appliances"
     }
   },
   {
@@ -2681,10 +2576,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwv0008vjvsyqo2w4nt",
       "name": "Water Dispensers",
-      "slug": "water-dispensers",
-      "image": "/uploads/cat-dispenser.jpg",
-      "createdAt": "2026-08-14T08:21:12.271Z",
-      "updatedAt": "2026-08-14T08:21:12.271Z"
+      "slug": "water-dispensers"
     }
   },
   {
@@ -2705,10 +2597,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssogzwq0007vjvsa05vts4p",
       "name": "Microwave Ovens",
-      "slug": "microwave-ovens",
-      "image": "/uploads/cat-microwave.jpg",
-      "createdAt": "2026-08-14T08:21:12.266Z",
-      "updatedAt": "2026-08-14T08:21:12.266Z"
+      "slug": "microwave-ovens"
     }
   },
   {
@@ -2729,10 +2618,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hi0005vjdwwrejbibn",
       "name": "Mobiles & Tablets",
-      "slug": "mobiles",
-      "image": "/uploads/cat-mobile.jpg",
-      "createdAt": "2026-08-14T07:39:21.366Z",
-      "updatedAt": "2026-08-14T08:21:12.262Z"
+      "slug": "mobiles"
     }
   },
   {
@@ -2753,10 +2639,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6hd0004vjdw78wxdbn6",
       "name": "Air Conditioners",
-      "slug": "air-conditioners",
-      "image": "/uploads/images-1786709527717.jfif",
-      "createdAt": "2026-08-14T07:39:21.362Z",
-      "updatedAt": "2026-08-14T12:13:43.481Z"
+      "slug": "air-conditioners"
     }
   },
   {
@@ -2777,10 +2660,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6h70003vjdwnm2ue6ud",
       "name": "LEDs & Smart TVs",
-      "slug": "leds-smart-tvs",
-      "image": "/uploads/images--1--1786709577464.jfif",
-      "createdAt": "2026-08-14T07:39:21.355Z",
-      "updatedAt": "2026-08-14T12:12:58.462Z"
+      "slug": "leds-smart-tvs"
     }
   },
   {
@@ -2792,19 +2672,16 @@ export const fallbackCatalogProducts = [
     "installmentPrice": 168000,
     "downpaymentBase": 25000,
     "durationMonths": 12,
-    "imageUrl": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?auto=format&fit=crop&w=600&q=80",
+    "imageUrl": "/uploads/dawlance/ref-inox.webp",
     "specsJson": "{\"Capacity\":\"18 Cu Ft\",\"Technology\":\"Inverter Pro\",\"Color\":\"Ruby Red\",\"Warranty\":\"12 Years Compressor\"}",
     "isFeatured": true,
     "stock": 15,
     "createdAt": "2026-08-14T07:39:21.392Z",
-    "updatedAt": "2026-08-14T08:21:12.298Z",
+    "updatedAt": "2026-11-25T10:28:51.399Z",
     "category": {
       "id": "cmssmz6h20002vjdw806zq83v",
       "name": "Refrigerators & Freezers",
-      "slug": "refrigerators",
-      "image": "/uploads/cat-refrigerator.jpg",
-      "createdAt": "2026-08-14T07:39:21.350Z",
-      "updatedAt": "2026-08-14T08:21:12.235Z"
+      "slug": "refrigerators"
     }
   },
   {
@@ -2825,10 +2702,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gw0001vjdwbuujxi4y",
       "name": "Electric Vehicles",
-      "slug": "electric-vehicles",
-      "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-      "createdAt": "2026-08-14T07:39:21.345Z",
-      "updatedAt": "2026-08-14T12:13:48.512Z"
+      "slug": "electric-vehicles"
     }
   },
   {
@@ -2849,93 +2723,7 @@ export const fallbackCatalogProducts = [
     "category": {
       "id": "cmssmz6gq0000vjdw9e6kxlh2",
       "name": "Motorbikes",
-      "slug": "motorbikes",
-      "image": "/uploads/cat-motorbike.jpg",
-      "createdAt": "2026-08-14T07:39:21.338Z",
-      "updatedAt": "2026-08-14T08:21:12.218Z"
+      "slug": "motorbikes"
     }
-  }
-];
-
-export const fallbackCatalogCategories = [
-  {
-    "id": "cmssmz6hd0004vjdw78wxdbn6",
-    "name": "Air Conditioners",
-    "slug": "air-conditioners",
-    "image": "/uploads/images-1786709527717.jfif",
-    "createdAt": "2026-08-14T07:39:21.362Z",
-    "updatedAt": "2026-08-14T12:13:43.481Z"
-  },
-  {
-    "id": "cmssmz6gw0001vjdwbuujxi4y",
-    "name": "Electric Vehicles",
-    "slug": "electric-vehicles",
-    "image": "/uploads/kiosk-83903-qr-1786709472748.png",
-    "createdAt": "2026-08-14T07:39:21.345Z",
-    "updatedAt": "2026-08-14T12:13:48.512Z"
-  },
-  {
-    "id": "cmssogzx00009vjvsjtiggs7w",
-    "name": "Kitchen & Home Appliances",
-    "slug": "home-appliances",
-    "image": "/uploads/cat-appliances.jpg",
-    "createdAt": "2026-08-14T08:21:12.276Z",
-    "updatedAt": "2026-08-14T08:21:12.276Z"
-  },
-  {
-    "id": "cmssmz6h70003vjdwnm2ue6ud",
-    "name": "LEDs & Smart TVs",
-    "slug": "leds-smart-tvs",
-    "image": "/uploads/images--1--1786709577464.jfif",
-    "createdAt": "2026-08-14T07:39:21.355Z",
-    "updatedAt": "2026-08-14T12:12:58.462Z"
-  },
-  {
-    "id": "cmssogzwq0007vjvsa05vts4p",
-    "name": "Microwave Ovens",
-    "slug": "microwave-ovens",
-    "image": "/uploads/cat-microwave.jpg",
-    "createdAt": "2026-08-14T08:21:12.266Z",
-    "updatedAt": "2026-08-14T08:21:12.266Z"
-  },
-  {
-    "id": "cmssmz6hi0005vjdwwrejbibn",
-    "name": "Mobiles & Tablets",
-    "slug": "mobiles",
-    "image": "/uploads/cat-mobile.jpg",
-    "createdAt": "2026-08-14T07:39:21.366Z",
-    "updatedAt": "2026-08-14T08:21:12.262Z"
-  },
-  {
-    "id": "cmssmz6gq0000vjdw9e6kxlh2",
-    "name": "Motorbikes",
-    "slug": "motorbikes",
-    "image": "/uploads/cat-motorbike.jpg",
-    "createdAt": "2026-08-14T07:39:21.338Z",
-    "updatedAt": "2026-08-14T08:21:12.218Z"
-  },
-  {
-    "id": "cmssmz6h20002vjdw806zq83v",
-    "name": "Refrigerators & Freezers",
-    "slug": "refrigerators",
-    "image": "/uploads/cat-refrigerator.jpg",
-    "createdAt": "2026-08-14T07:39:21.350Z",
-    "updatedAt": "2026-08-14T08:21:12.235Z"
-  },
-  {
-    "id": "cmssogzwh0005vjvsldha5ofk",
-    "name": "Washing Machines",
-    "slug": "washing-machines",
-    "image": "/uploads/cat-washer.jpg",
-    "createdAt": "2026-08-14T08:21:12.257Z",
-    "updatedAt": "2026-08-14T08:21:12.257Z"
-  },
-  {
-    "id": "cmssogzwv0008vjvsyqo2w4nt",
-    "name": "Water Dispensers",
-    "slug": "water-dispensers",
-    "image": "/uploads/cat-dispenser.jpg",
-    "createdAt": "2026-08-14T08:21:12.271Z",
-    "updatedAt": "2026-08-14T08:21:12.271Z"
   }
 ];

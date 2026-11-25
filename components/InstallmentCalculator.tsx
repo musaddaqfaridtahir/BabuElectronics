@@ -15,7 +15,7 @@ export default function InstallmentCalculator({
   onSelectProductForInstallment,
 }: CalculatorProps) {
   const [selectedProductId, setSelectedProductId] = useState<string>('');
-  const [downpaymentPct, setDownpaymentPct] = useState<number>(20);
+  const [downpaymentPct, setDownpaymentPct] = useState<number>(30);
   const [tenureMonths, setTenureMonths] = useState<number>(12);
 
   useEffect(() => {
@@ -106,17 +106,17 @@ export default function InstallmentCalculator({
               </div>
               <input
                 type="range"
-                min={15}
-                max={50}
+                min={30}
+                max={60}
                 step={5}
                 value={downpaymentPct}
                 onChange={(e) => setDownpaymentPct(Number(e.target.value))}
                 className="w-full accent-blue-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
               />
               <div className="flex justify-between text-[11px] text-slate-400 font-bold">
-                <span>15% Min Advance</span>
-                <span>25% Standard</span>
-                <span>50% Max Advance</span>
+                <span>30% Minimum Advance</span>
+                <span>40% Standard</span>
+                <span>60% Maximum Advance</span>
               </div>
             </div>
 

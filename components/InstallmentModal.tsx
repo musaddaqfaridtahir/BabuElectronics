@@ -21,19 +21,55 @@ interface InstallmentModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: Product | null;
+  initialColor?: string;
 }
 
-export default function InstallmentModal({ isOpen, onClose, product }: InstallmentModalProps) {
+export default function InstallmentModal({
+  isOpen,
+  onClose,
+  product,
+  initialColor,
+}: InstallmentModalProps) {
   if (!isOpen || !product) return null;
+
+  // Extract available colors from product specs if available
+  let availableColors: string[] = ['Standard / Default'];
+  if (product.specsJson) {
+    try {
+      const specs = JSON.parse(product.specsJson);
+      const colorKey = Object.keys(specs).find((k) =>
+        k.toLowerCase().includes('color')
+      );
+      if (colorKey && specs[colorKey]) {
+        availableColors = specs[colorKey]
+          .split(',')
+          .map((c: string) => c.trim())
+          .filter(Boolean);
+      }
+    } catch (e) {}
+  }
+  if (availableColors.length === 0 || (availableColors.length === 1 && availableColors[0] === 'Standard / Default')) {
+    const titleLower = product.title.toLowerCase();
+    if (titleLower.includes('honda') || titleLower.includes('metro') || titleLower.includes('bike') || titleLower.includes('ev')) {
+      availableColors = ['Red (سرخ)', 'Black (سیاہ)', 'Blue (نیلا)'];
+    } else if (titleLower.includes('dawlance') || titleLower.includes('haier') || titleLower.includes('refrigerator')) {
+      availableColors = ['Burgundy Red', 'Metallic Silver', 'Inox Grey', 'Glass Black'];
+    } else if (titleLower.includes('vivo') || titleLower.includes('mobile')) {
+      availableColors = ['Stellar Silver', 'Moonlight White', 'Noble Black', 'Crystal Blue'];
+    }
+  }
 
   const [customerName, setCustomerName] = useState('');
   const [cnic, setCnic] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [downpaymentPct, setDownpaymentPct] = useState<number>(20);
+  const [downpaymentPct, setDownpaymentPct] = useState<number>(30);
   const [tenure, setTenure] = useState<number>(product.durationMonths || 12);
   const [guarantorName, setGuarantorName] = useState('');
   const [guarantorPhone, setGuarantorPhone] = useState('');
+  const [selectedColor, setSelectedColor] = useState<string>(
+    initialColor || availableColors[0] || 'Standard'
+  );
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -83,6 +119,7 @@ export default function InstallmentModal({ isOpen, onClose, product }: Installme
           `*New Installment Application - Babu Electronics*\n` +
           `-----------------------------------\n` +
           `*Product:* ${product.title}\n` +
+          `*Preferred Color:* ${selectedColor}\n` +
           `*Advance Downpayment:* Rs. ${downpaymentAmount.toLocaleString()} (${downpaymentPct}%)\n` +
           `*Tenure:* ${tenure} Months\n` +
           `*Monthly Installment:* Rs. ${monthlyInstallment.toLocaleString()}/mo\n` +
@@ -214,10 +251,10 @@ export default function InstallmentModal({ isOpen, onClose, product }: Installme
             <div className="bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-200 space-y-3.5">
               <div>
                 <label className="block text-[11px] font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                  Select Advance Downpayment:
+                  Select Advance Downpayment (Minimum 30%):
                 </label>
                 <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-                  {[20, 30, 40, 50].map((pct) => (
+                  {[30, 35, 40, 50].map((pct) => (
                     <button
                       type="button"
                       key={pct}
@@ -274,6 +311,32 @@ export default function InstallmentModal({ isOpen, onClose, product }: Installme
                 </div>
               </div>
             </div>
+
+            {/* Color Preference Option */}
+            {availableColors.length > 0 && (
+              <div className="bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-200 space-y-2">
+                <div className="flex justify-between items-center text-[11px] font-bold">
+                  <span className="text-slate-700 uppercase tracking-wider">Select Product Color / رنگ کا انتخاب:</span>
+                  <span className="text-blue-600 font-extrabold">{selectedColor}</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {availableColors.map((col) => (
+                    <button
+                      key={col}
+                      type="button"
+                      onClick={() => setSelectedColor(col)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
+                        selectedColor === col
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-xs ring-2 ring-blue-500/30'
+                          : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                      }`}
+                    >
+                      {col}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Reusable Requirements Checklist */}
             <InstallmentRequirements compact />
@@ -362,7 +425,7 @@ export default function InstallmentModal({ isOpen, onClose, product }: Installme
             </div>
 
             {/* Form Action Submit Button */}
-            <div className="pt-2 pb-safe">
+            <div className="pt-2 pb-8 sm:pb-5">
               <button
                 type="submit"
                 disabled={loading}

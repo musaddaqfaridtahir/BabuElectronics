@@ -57,24 +57,27 @@ export function calculateInstallmentPlan(
   const tenureMonths = Math.max(1, options?.customTenureMonths || product.durationMonths || 12);
   const tieredMarkupRate = getTieredMarkupRate(tenureMonths, isUnder100k);
 
-  // 1. Calculate Downpayment
-  let downpaymentAmount = 0;
-  let downpaymentPct = options?.customDownpaymentPct ?? 20;
+  // 1. Calculate Downpayment (Minimum 30% on all products per store policy)
+  const minDownpaymentPct = 30;
+  let downpaymentPct = Math.max(minDownpaymentPct, options?.customDownpaymentPct ?? 30);
+  const min30Downpayment = Math.round((cashPrice * 0.3) / 100) * 100;
 
+  let downpaymentAmount = 0;
   if (options?.customDownpaymentAmount !== undefined) {
-    downpaymentAmount = Math.max(0, options.customDownpaymentAmount);
-    downpaymentPct = cashPrice > 0 ? Math.round((downpaymentAmount / cashPrice) * 100) : 20;
+    downpaymentAmount = Math.max(min30Downpayment, options.customDownpaymentAmount);
+    downpaymentPct = cashPrice > 0 ? Math.round((downpaymentAmount / cashPrice) * 100) : 30;
   } else if (options?.customDownpaymentPct !== undefined) {
-    downpaymentPct = Math.max(10, Math.min(80, options.customDownpaymentPct));
+    downpaymentPct = Math.max(30, Math.min(80, options.customDownpaymentPct));
     downpaymentAmount = Math.round((cashPrice * downpaymentPct) / 100);
   } else if (product.downpaymentBase && product.downpaymentBase > 0) {
-    downpaymentAmount = product.downpaymentBase;
-    downpaymentPct = cashPrice > 0 ? Math.round((downpaymentAmount / cashPrice) * 100) : 20;
+    downpaymentAmount = Math.max(min30Downpayment, product.downpaymentBase);
+    downpaymentPct = cashPrice > 0 ? Math.round((downpaymentAmount / cashPrice) * 100) : 30;
   } else {
     downpaymentAmount = Math.round((cashPrice * downpaymentPct) / 100);
   }
 
-  // Ensure downpayment doesn't exceed cash price
+  // Round downpayment to clean nearest 100 and cap at cash price
+  downpaymentAmount = Math.round(downpaymentAmount / 100) * 100;
   downpaymentAmount = Math.min(downpaymentAmount, cashPrice);
 
   // 2. Determine Total Installment Price with Tenure-Adjusted Markup
@@ -98,9 +101,15 @@ export function calculateInstallmentPlan(
     markupRatePercentage = tieredMarkupRate;
   }
 
-  // 3. Financed balance & monthly payment
+  // 3. Financed balance & monthly payment (Rounded to clean nearest 100 figure)
+  // e.g. 2010 -> 2000, 2080 or 2090 -> 2100
   const financedAmount = Math.max(0, totalInstallmentPrice - downpaymentAmount);
-  const monthlyPayment = tenureMonths > 0 ? Math.round(financedAmount / tenureMonths) : 0;
+  const rawMonthly = tenureMonths > 0 ? financedAmount / tenureMonths : 0;
+  const monthlyPayment = Math.round(rawMonthly / 100) * 100;
+
+  // Harmonize total installment price to match downpayment + (monthlyPayment * tenureMonths)
+  totalInstallmentPrice = downpaymentAmount + (monthlyPayment * tenureMonths);
+  markupAmount = Math.max(0, totalInstallmentPrice - cashPrice);
 
   return {
     cashPrice,

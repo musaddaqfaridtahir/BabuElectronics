@@ -65,6 +65,17 @@ export default function HomePageClient({
     setIsModalOpen(true);
   };
 
+  const handleCategorySelect = (slug: string) => {
+    setSelectedCategory(slug);
+    if (slug === 'all') {
+      const el = document.getElementById('categories-section');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      const el = document.getElementById('catalog-section');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const filteredProducts = products.filter((p) => {
     const matchesSearch =
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,7 +98,7 @@ export default function HomePageClient({
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         selectedCategory={selectedCategory}
-        onCategorySelect={setSelectedCategory}
+        onCategorySelect={handleCategorySelect}
         categories={categories}
       />
 
@@ -102,11 +113,7 @@ export default function HomePageClient({
       {/* 3. Category Showcase Grid */}
       <CategoryGrid
         activeCategory={selectedCategory}
-        onSelectCategory={(slug) => {
-          setSelectedCategory(slug);
-          const el = document.getElementById('catalog-section');
-          el?.scrollIntoView({ behavior: 'smooth' });
-        }}
+        onSelectCategory={handleCategorySelect}
         categories={categories}
       />
 
@@ -120,7 +127,9 @@ export default function HomePageClient({
               <span>Available Inventory</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Product Catalog
+              {selectedCategory === 'all'
+                ? 'Product Catalog'
+                : `${categories.find((c) => c.slug === selectedCategory)?.name || 'Filtered'} Inventory`}
             </h2>
           </div>
 
@@ -130,10 +139,10 @@ export default function HomePageClient({
             </span>
             {selectedCategory !== 'all' && (
               <button
-                onClick={() => setSelectedCategory('all')}
-                className="text-xs text-blue-600 hover:underline font-bold"
+                onClick={() => handleCategorySelect('all')}
+                className="text-xs text-blue-600 hover:underline font-bold cursor-pointer"
               >
-                Clear Filter
+                View All Categories
               </button>
             )}
           </div>
