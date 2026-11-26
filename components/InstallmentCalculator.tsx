@@ -30,7 +30,8 @@ export default function InstallmentCalculator({
     selectedProduct?.category?.slug === 'mobiles' ||
     (selectedProduct as any)?.categorySlug === 'mobiles' ||
     selectedProduct?.title?.toLowerCase().includes('vivo') ||
-    selectedProduct?.title?.toLowerCase().includes('infinix');
+    selectedProduct?.title?.toLowerCase().includes('infinix') ||
+    selectedProduct?.title?.toLowerCase().includes('tecno');
 
   const tenureOptions = isMobile ? [6, 8, 10] : [6, 8, 10, 12, 14, 16];
 
@@ -128,18 +129,18 @@ export default function InstallmentCalculator({
               </div>
             </div>
 
-            {/* Step 3: Tenure Options (6 to 16 Months) */}
+            {/* Step 3: Tenure Options (6 to 16 Months, Max 10M for Mobiles) */}
             <div>
               <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
-                3. Choose Installment Duration (6 to 16 Months):
+                3. Choose Installment Duration ({isMobile ? 'Max 10 Months for Mobiles' : '6 to 16 Months'}):
               </label>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+              <div className={`grid gap-2 ${isMobile ? 'grid-cols-3' : 'grid-cols-3 sm:grid-cols-6'}`}>
                 {tenureOptions.map((m) => (
                   <button
                     key={m}
                     onClick={() => setTenureMonths(m)}
                     className={`py-3 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
-                      tenureMonths === m
+                      (isMobile ? Math.min(10, tenureMonths) : tenureMonths) === m
                         ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-600 font-black shadow-md shadow-blue-500/20 scale-[1.02]'
                         : 'bg-white text-slate-700 border-slate-200/80 hover:bg-slate-50 hover:border-slate-300'
                     }`}

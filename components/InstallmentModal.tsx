@@ -24,14 +24,16 @@ interface InstallmentModalProps {
   initialColor?: string;
 }
 
-export default function InstallmentModal({
-  isOpen,
+export default function InstallmentModal(props: InstallmentModalProps) {
+  if (!props.isOpen || !props.product) return null;
+  return <InstallmentModalInner key={props.product.id} {...props} product={props.product} />;
+}
+
+function InstallmentModalInner({
   onClose,
   product,
   initialColor,
-}: InstallmentModalProps) {
-  if (!isOpen || !product) return null;
-
+}: Omit<InstallmentModalProps, 'product'> & { product: Product }) {
   // Extract available colors from product specs if available
   let availableColors: string[] = ['Standard / Default'];
   if (product.specsJson) {
@@ -54,7 +56,7 @@ export default function InstallmentModal({
       availableColors = ['Red (سرخ)', 'Black (سیاہ)', 'Blue (نیلا)'];
     } else if (titleLower.includes('dawlance') || titleLower.includes('haier') || titleLower.includes('refrigerator')) {
       availableColors = ['Burgundy Red', 'Metallic Silver', 'Inox Grey', 'Glass Black'];
-    } else if (titleLower.includes('vivo') || titleLower.includes('mobile')) {
+    } else if (titleLower.includes('vivo') || titleLower.includes('infinix') || titleLower.includes('tecno') || titleLower.includes('mobile')) {
       availableColors = ['Stellar Silver', 'Moonlight White', 'Noble Black', 'Crystal Blue'];
     }
   }
@@ -63,7 +65,8 @@ export default function InstallmentModal({
     product.category?.slug === 'mobiles' ||
     (product as any)?.categorySlug === 'mobiles' ||
     product.title.toLowerCase().includes('vivo') ||
-    product.title.toLowerCase().includes('infinix');
+    product.title.toLowerCase().includes('infinix') ||
+    product.title.toLowerCase().includes('tecno');
 
   const tenureOptions = isMobile ? [6, 8, 10] : [6, 8, 10, 12, 14, 16];
 

@@ -144,7 +144,8 @@ export default function ProductDetailClient({
     product.category?.slug === 'mobiles' ||
     (product as any).categorySlug === 'mobiles' ||
     product.title.toLowerCase().includes('vivo') ||
-    product.title.toLowerCase().includes('infinix');
+    product.title.toLowerCase().includes('infinix') ||
+    product.title.toLowerCase().includes('tecno');
 
   const availableTenures = isMobile ? [6, 8, 10] : [6, 8, 10, 12, 14, 16];
 

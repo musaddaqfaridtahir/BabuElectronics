@@ -97,11 +97,14 @@ export default function ProductCard({ product, onApplyInstallment }: ProductCard
           {/* Key Specs Pills */}
           {Object.keys(specsObj).length > 0 && (
             <div className="hidden sm:flex flex-wrap gap-1 text-[10px] text-slate-500 font-medium">
-              {Object.entries(specsObj).slice(0, 2).map(([k, v]) => (
-                <span key={k} className="px-2 py-0.5 bg-slate-50 rounded-md border border-slate-200/80 truncate">
-                  <strong className="text-slate-700">{k}:</strong> {v}
-                </span>
-              ))}
+              {Object.entries(specsObj)
+                .filter(([k, v]) => k !== 'colorImages' && typeof v !== 'object' && v !== null)
+                .slice(0, 2)
+                .map(([k, v]) => (
+                  <span key={k} className="px-2 py-0.5 bg-slate-50 rounded-md border border-slate-200/80 truncate">
+                    <strong className="text-slate-700">{k}:</strong> {String(v)}
+                  </span>
+                ))}
             </div>
           )}
 

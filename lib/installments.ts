@@ -58,7 +58,7 @@ export function calculateInstallmentPlan(
   const cashPrice = Math.max(0, Number(product.cashPrice) || 0);
   const isUnder100k = cashPrice < 100000;
 
-  // Check if product is mobile phone (Store Rule: 30% markup, max 10 months plan)
+  // Check if product is mobile phone (Store Rule: 30% on total cash price @ 10 months = 3%/month; max 10 months plan)
   const isMobile =
     Boolean(options?.isMobile) ||
     product.categorySlug === 'mobiles' ||
@@ -69,7 +69,10 @@ export function calculateInstallmentPlan(
     tenureMonths = 10;
   }
 
-  const tieredMarkupRate = isMobile ? 30 : getTieredMarkupRate(tenureMonths, isUnder100k);
+  // Mobiles: 30% on total price at 10 months => 3% per month (e.g. 6M=18%, 8M=24%, 10M=30%)
+  const tieredMarkupRate = isMobile
+    ? Math.round((30 / 10) * tenureMonths)
+    : getTieredMarkupRate(tenureMonths, isUnder100k);
 
   // 1. Calculate Downpayment (Minimum 30% on all products per store policy)
   const minDownpaymentPct = 30;
@@ -102,10 +105,10 @@ export function calculateInstallmentPlan(
   const financedPrincipal = Math.max(0, cashPrice - downpaymentAmount);
 
   if (isMobile) {
-    // Fixed 30% markup for all mobile phones
-    markupAmount = Math.round(financedPrincipal * 0.30);
+    // Mobiles: markup is charged on TOTAL cash price (30% at 10M, reduced proportionally for fewer months)
+    markupRatePercentage = tieredMarkupRate;
+    markupAmount = Math.round(cashPrice * (markupRatePercentage / 100));
     totalInstallmentPrice = cashPrice + markupAmount;
-    markupRatePercentage = 30;
   } else if (
     product.installmentPrice &&
     product.installmentPrice > cashPrice &&

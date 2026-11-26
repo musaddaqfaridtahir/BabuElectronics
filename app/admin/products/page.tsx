@@ -14,7 +14,10 @@ import {
   Image as ImageIcon,
   Sparkles,
   CheckCircle2,
+  Calculator,
+  AlertTriangle,
 } from 'lucide-react';
+import { calculateInstallmentPlan } from '@/lib/installments';
 
 interface Category {
   id: string;
@@ -60,10 +63,13 @@ export default function AdminProductsPage() {
   const [formSpecs, setFormSpecs] = useState<{ key: string; value: string }[]>([
     { key: '', value: '' },
   ]);
+  const [formColorImages, setFormColorImages] = useState<Record<string, string> | null>(null);
   const [formIsFeatured, setFormIsFeatured] = useState(false);
   const [formStock, setFormStock] = useState('10');
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const [formError, setFormError] = useState('');
+  const [dbWarning, setDbWarning] = useState('');
 
   // URL Extractor State
   const [extractUrl, setExtractUrl] = useState('');
@@ -72,14 +78,22 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     fetchData();
+    fetch('/api/admin/db-status')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d && d.writable === false && d.message) {
+          setDbWarning(d.message);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const fetchData = async () => {
     try {
       setLoading(true);
       const [prodRes, catRes] = await Promise.all([
-        fetch('/api/products'),
-        fetch('/api/categories'),
+        fetch('/api/products', { cache: 'no-store' }),
+        fetch('/api/categories', { cache: 'no-store' }),
       ]);
       const prodData = await prodRes.json();
       const catData = await catRes.json();
@@ -91,6 +105,31 @@ export default function AdminProductsPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const autoCalculateFields = (cashStr: string, catId: string, durStr: string) => {
+    const cash = Number(cashStr);
+    if (!cash || isNaN(cash) || cash <= 0) return;
+    const cat = categories.find((c) => c.id === catId);
+    const isMob = cat?.slug === 'mobiles';
+    let months = Number(durStr) || (isMob ? 10 : 12);
+    if (isMob && months > 10) months = 10;
+
+    const plan = calculateInstallmentPlan(
+      {
+        cashPrice: cash,
+        durationMonths: months,
+        categorySlug: cat?.slug,
+      },
+      {
+        customDownpaymentPct: 30,
+        customTenureMonths: months,
+        isMobile: isMob,
+      }
+    );
+    setFormDurationMonths(String(plan.tenureMonths));
+    setFormDownpaymentBase(String(plan.downpaymentAmount));
+    setFormInstallmentPrice(String(plan.totalInstallmentPrice));
   };
 
   const handleOpenModal = (prod: Product | null = null) => {
@@ -111,24 +150,35 @@ export default function AdminProductsPage() {
 
       try {
         const parsedSpecs = prod.specsJson ? JSON.parse(prod.specsJson) : {};
-        const specPairs = Object.entries(parsedSpecs).map(([key, value]) => ({
-          key,
-          value: String(value),
-        }));
+        if (parsedSpecs.colorImages && typeof parsedSpecs.colorImages === 'object') {
+          setFormColorImages(parsedSpecs.colorImages);
+        } else {
+          setFormColorImages(null);
+        }
+        const specPairs = Object.entries(parsedSpecs)
+          .filter(([key, value]) => key !== 'colorImages' && typeof value !== 'object')
+          .map(([key, value]) => ({
+            key,
+            value: String(value),
+          }));
         setFormSpecs(specPairs.length > 0 ? specPairs : [{ key: '', value: '' }]);
       } catch (e) {
+        setFormColorImages(null);
         setFormSpecs([{ key: '', value: '' }]);
       }
     } else {
       setEditingProduct(null);
       setFormTitle('');
-      setFormCategoryId(categories[0]?.id || '');
+      const defaultCatId = categories[0]?.id || '';
+      const isDefaultMob = categories[0]?.slug === 'mobiles';
+      setFormCategoryId(defaultCatId);
       setFormCashPrice('');
       setFormInstallmentPrice('');
       setFormDownpaymentBase('');
-      setFormDurationMonths('12');
+      setFormDurationMonths(isDefaultMob ? '10' : '12');
       setFormImageUrl('');
-      setFormSpecs([{ key: 'Warranty', value: '1 Year' }]);
+      setFormColorImages(null);
+      setFormSpecs([{ key: 'Warranty', value: '1 Year Official' }]);
       setFormIsFeatured(false);
       setFormStock('10');
     }
@@ -175,28 +225,88 @@ export default function AdminProductsPage() {
     }
   };
 
+  const compressImageFile = (file: File): Promise<File> => {
+    return new Promise((resolve) => {
+      if (!file.type.startsWith('image/') || file.size < 350 * 1024) {
+        resolve(file);
+        return;
+      }
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        img.onload = () => {
+          const maxDim = 900;
+          let { width, height } = img;
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            resolve(file);
+            return;
+          }
+          ctx.drawImage(img, 0, 0, width, height);
+          canvas.toBlob(
+            (blob) => {
+              if (!blob) {
+                resolve(file);
+                return;
+              }
+              resolve(new File([blob], file.name.replace(/\.[^.]+$/, '.jpg'), { type: 'image/jpeg' }));
+            },
+            'image/jpeg',
+            0.84
+          );
+        };
+        img.onerror = () => resolve(file);
+        img.src = ev.target?.result as string;
+      };
+      reader.onerror = () => resolve(file);
+      reader.readAsDataURL(file);
+    });
+  };
+
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const rawFile = e.target.files?.[0];
+    if (!rawFile) return;
 
     setUploadingImage(true);
-    const formData = new FormData();
-    formData.append('file', file);
+    setFormError('');
 
     try {
+      const file = await compressImageFile(rawFile);
+      const formData = new FormData();
+      formData.append('file', file);
+
       const res = await fetch('/api/admin/upload', {
         method: 'POST',
         body: formData,
       });
 
-      const data = await res.json();
+      const rawText = await res.text();
+      let data: any = {};
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        data = { error: rawText || 'Upload response error' };
+      }
+
       if (res.ok && data.url) {
         setFormImageUrl(data.url);
       } else {
         setFormError(data.error || 'Failed to upload image');
       }
-    } catch (err) {
-      setFormError('Image upload failed');
+    } catch (err: any) {
+      setFormError('Image upload failed: ' + (err?.message || 'Network error'));
     } finally {
       setUploadingImage(false);
     }
@@ -206,33 +316,73 @@ export default function AdminProductsPage() {
     e.preventDefault();
     setFormError('');
 
-    if (!formTitle || !formCategoryId || !formCashPrice || !formInstallmentPrice) {
-      setFormError('Please fill in all required fields (Title, Category, Prices).');
+    if (!formTitle.trim() || !formCategoryId || !formCashPrice) {
+      setFormError('Please fill in Product Title, Category, and Cash Price.');
       return;
     }
 
-    const specsObj: Record<string, string> = {};
+    const cashNum = Number(formCashPrice);
+    if (isNaN(cashNum) || cashNum <= 0) {
+      setFormError('Cash Price must be a valid positive number.');
+      return;
+    }
+
+    // Auto-fill installment & downpayment if admin left them empty
+    const selectedCat = categories.find((c) => c.id === formCategoryId);
+    const isMob = selectedCat?.slug === 'mobiles';
+    let finalDuration = Number(formDurationMonths) || (isMob ? 10 : 12);
+    if (isMob && finalDuration > 10) finalDuration = 10;
+
+    let finalDownpayment = Number(formDownpaymentBase);
+    let finalInstallment = Number(formInstallmentPrice);
+
+    if (!finalInstallment || finalInstallment <= 0) {
+      const computed = calculateInstallmentPlan(
+        {
+          cashPrice: cashNum,
+          durationMonths: finalDuration,
+          categorySlug: selectedCat?.slug,
+        },
+        {
+          customDownpaymentPct: 30,
+          customTenureMonths: finalDuration,
+          isMobile: isMob,
+        }
+      );
+      if (!finalDownpayment || finalDownpayment <= 0) {
+        finalDownpayment = computed.downpaymentAmount;
+      }
+      finalInstallment = computed.totalInstallmentPrice;
+    } else if (!finalDownpayment || finalDownpayment <= 0) {
+      finalDownpayment = Math.round((cashNum * 0.3) / 100) * 100;
+    }
+
+    const specsObj: Record<string, any> = {};
     formSpecs.forEach((pair) => {
       if (pair.key.trim()) {
         specsObj[pair.key.trim()] = pair.value.trim();
       }
     });
+    if (formColorImages) {
+      specsObj.colorImages = formColorImages;
+    }
 
     const payload = {
       title: formTitle.trim(),
       slug: editingProduct ? editingProduct.slug : undefined,
       categoryId: formCategoryId,
-      cashPrice: Number(formCashPrice),
-      installmentPrice: Number(formInstallmentPrice),
-      downpaymentBase: Number(formDownpaymentBase) || 0,
-      durationMonths: Number(formDurationMonths) || 12,
-      imageUrl: formImageUrl || 'https://images.unsplash.com/photo-1526738549149-8e07eca6c147?w=500',
+      cashPrice: cashNum,
+      installmentPrice: finalInstallment,
+      downpaymentBase: finalDownpayment,
+      durationMonths: finalDuration,
+      imageUrl: formImageUrl.trim() || '/logo.png',
       specsJson: specsObj,
       isFeatured: formIsFeatured,
-      stock: Number(formStock) || 10,
+      stock: formStock !== '' ? Number(formStock) : 10,
     };
 
     try {
+      setIsSaving(true);
       const url = editingProduct ? `/api/products/${editingProduct.id}` : '/api/products';
       const method = editingProduct ? 'PUT' : 'POST';
 
@@ -242,15 +392,24 @@ export default function AdminProductsPage() {
         body: JSON.stringify(payload),
       });
 
+      const rawText = await res.text();
+      let resData: any = {};
+      try {
+        resData = JSON.parse(rawText);
+      } catch {
+        resData = { error: rawText || `Server error (${res.status})` };
+      }
+
       if (res.ok) {
         setIsModalOpen(false);
-        fetchData();
+        await fetchData();
       } else {
-        const errData = await res.json();
-        setFormError(errData.error || 'Failed to save product');
+        setFormError(resData.error || `Failed to save product (${res.status})`);
       }
-    } catch (err) {
-      setFormError('Network error while saving product');
+    } catch (err: any) {
+      setFormError('Network error while saving product: ' + (err?.message || ''));
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -275,6 +434,18 @@ export default function AdminProductsPage() {
 
   return (
     <div className="space-y-6">
+      {dbWarning && (
+        <div className="bg-amber-500/10 border border-amber-500/30 text-amber-300 p-4 rounded-2xl flex items-start gap-3 text-xs leading-relaxed">
+          <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+          <div>
+            <div className="font-black text-amber-200 uppercase tracking-wider mb-1">
+              Vercel Read-Only Database Notice
+            </div>
+            <p>{dbWarning}</p>
+          </div>
+        </div>
+      )}
+
       {/* Header & Actions */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 border border-slate-800 p-6 rounded-2xl">
         <div>
@@ -508,7 +679,7 @@ export default function AdminProductsPage() {
                     type="text"
                     value={formTitle}
                     onChange={(e) => setFormTitle(e.target.value)}
-                    placeholder="e.g. Honda CG 125 2025"
+                    placeholder="e.g. Honda CG 125 2027"
                     required
                     className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
                   />
@@ -535,46 +706,67 @@ export default function AdminProductsPage() {
               </div>
 
               {/* Pricing Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-                    Cash Price (PKR) *
-                  </label>
-                  <input
-                    type="number"
-                    value={formCashPrice}
-                    onChange={(e) => setFormCashPrice(e.target.value)}
-                    placeholder="285000"
-                    required
-                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                  />
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                    Pricing & Installment Plan (Min 30% Advance)
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => autoCalculateFields(formCashPrice, formCategoryId, formDurationMonths)}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 text-[11px] font-bold rounded-lg border border-blue-500/30 transition-colors"
+                  >
+                    <Calculator className="w-3 h-3" />
+                    <span>Auto-Calculate 30% Plan</span>
+                  </button>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-                    Installment Total (PKR) *
-                  </label>
-                  <input
-                    type="number"
-                    value={formInstallmentPrice}
-                    onChange={(e) => setFormInstallmentPrice(e.target.value)}
-                    placeholder="320000"
-                    required
-                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-blue-400 placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                  />
-                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Cash Price (PKR) *
+                    </label>
+                    <input
+                      type="number"
+                      value={formCashPrice}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setFormCashPrice(val);
+                        if (!editingProduct) {
+                          autoCalculateFields(val, formCategoryId, formDurationMonths);
+                        }
+                      }}
+                      placeholder="286900"
+                      required
+                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-                    Base Downpayment (PKR)
-                  </label>
-                  <input
-                    type="number"
-                    value={formDownpaymentBase}
-                    onChange={(e) => setFormDownpaymentBase(e.target.value)}
-                    placeholder="50000"
-                    className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-emerald-400 placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                  />
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Installment Total (PKR)
+                    </label>
+                    <input
+                      type="number"
+                      value={formInstallmentPrice}
+                      onChange={(e) => setFormInstallmentPrice(e.target.value)}
+                      placeholder="Auto-calculated if empty"
+                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-blue-400 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                      Base Downpayment (PKR)
+                    </label>
+                    <input
+                      type="number"
+                      value={formDownpaymentBase}
+                      onChange={(e) => setFormDownpaymentBase(e.target.value)}
+                      placeholder="Auto 30% if empty"
+                      className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-emerald-400 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -719,15 +911,21 @@ export default function AdminProductsPage() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-xl border border-slate-700"
+                  disabled={isSaving}
+                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 disabled:opacity-50 text-slate-300 text-xs font-bold rounded-xl border border-slate-700"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-extrabold rounded-xl shadow-lg shadow-blue-600/30"
+                  disabled={isSaving || uploadingImage}
+                  className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 disabled:opacity-50 text-white text-xs font-extrabold rounded-xl shadow-lg shadow-blue-600/30"
                 >
-                  {editingProduct ? 'Update Product' : 'Save Product'}
+                  {isSaving
+                    ? 'Saving...'
+                    : editingProduct
+                    ? 'Update Product'
+                    : 'Save Product'}
                 </button>
               </div>
             </form>

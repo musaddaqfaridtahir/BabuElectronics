@@ -105,7 +105,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
         {/* Right Column: Featured Flagship Product Showcase Card (Clickable to Full Specs) */}
         <div className="lg:col-span-5">
           <Link
-            href="/product/honda-cg-125-self-start-2025"
+            href="/product/honda-cg125s-self-start"
             className="block bg-white/[0.08] backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl relative group animate-float hover:border-blue-400/50 hover:bg-white/[0.12] transition-all duration-300"
           >
             
@@ -120,7 +120,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
                 </span>
               </div>
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-extrabold uppercase shimmer-badge">
-                2025 Model
+                2027 Model
               </span>
             </div>
 
@@ -130,8 +130,8 @@ export default function Hero({ onExploreClick }: HeroProps) {
               <div className="absolute inset-0 bg-radial from-blue-500/25 via-indigo-500/10 to-transparent pointer-events-none blur-xl" />
               
               <img
-                src="/uploads/honda/honda-cg125s-self-start.webp"
-                alt="Honda CG 125 Self Start 2025 Model"
+                src="/uploads/honda/cg125s-red.webp"
+                alt="Honda CG 125 Self Start 2027 Model"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src = '/logo.png';
                 }}
@@ -140,7 +140,7 @@ export default function Hero({ onExploreClick }: HeroProps) {
               
               <span className="absolute bottom-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-black/75 backdrop-blur-md text-[10px] sm:text-xs font-black text-amber-300 border border-amber-400/30 flex items-center gap-1.5 shadow-md">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>2025 Sticker & Self Start</span>
+                <span>2027 Sticker & Self Start</span>
               </span>
 
               <span className="absolute top-3 right-3 z-20 px-2.5 py-0.5 rounded-full bg-blue-500/30 backdrop-blur-md text-[10px] font-bold text-blue-200 border border-blue-400/40">
@@ -151,11 +151,11 @@ export default function Hero({ onExploreClick }: HeroProps) {
             {/* Product Title & Cash Price */}
             <div className="space-y-1">
               <h3 className="text-base sm:text-lg font-black text-white group-hover:text-blue-300 transition-colors">
-                Honda CG 125 Self Start (2025 Model)
+                Honda CG 125S Self Start (2027 Model)
               </h3>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-slate-400 font-medium">Cash Price:</span>
-                <span className="text-emerald-300 font-black text-sm">Rs. 285,000</span>
+                <span className="text-emerald-300 font-black text-sm">Rs. 286,900</span>
               </div>
             </div>
 
@@ -165,14 +165,14 @@ export default function Hero({ onExploreClick }: HeroProps) {
                 <span className="text-[10px] text-blue-300 font-semibold uppercase block">
                   30% Advance Downpayment
                 </span>
-                <span className="font-black text-white text-sm">Rs. 85,500</span>
+                <span className="font-black text-white text-sm">Rs. 86,100</span>
               </div>
               <div className="text-right">
                 <span className="text-[10px] text-blue-300 font-semibold uppercase block">
                   Monthly (16 Mo)
                 </span>
                 <span className="font-black text-amber-300 text-sm sm:text-base">
-                  Rs. 16,000 <span className="text-xs text-slate-300">/mo</span>
+                  Rs. 16,100 <span className="text-xs text-slate-300">/mo</span>
                 </span>
               </div>
             </div>

@@ -2,6 +2,19 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { createSlug } from '@/lib/slugify';
 
+function formatUpdateError(error: any, defaultMsg: string): string {
+  const msg = String(error?.message || '');
+  if (
+    msg.includes('READONLY') ||
+    msg.includes('readonly database') ||
+    msg.includes('EROFS') ||
+    msg.includes('read-only file system')
+  ) {
+    return 'Vercel par SQLite database read-only hai is liye changes save nahi ho rahay. Live website/mobile se edit save karne ke liye Vercel Dashboard > Storage mein Neon Postgres connect karein (local PC par changes save hotay hain).';
+  }
+  return msg ? `${defaultMsg}: ${msg.split('\n').pop()?.trim() || msg}` : defaultMsg;
+}
+
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -44,18 +57,36 @@ export async function PUT(
       stock,
     } = body;
 
+    const existingProduct = await prisma.product.findUnique({ where: { id } });
+    if (!existingProduct) {
+      return NextResponse.json({ error: 'Product not found in database.' }, { status: 404 });
+    }
+
     const dataToUpdate: any = {};
     if (title !== undefined) dataToUpdate.title = title.trim();
-    if (slug) {
-      dataToUpdate.slug = createSlug(slug);
-    } else if (title) {
-      dataToUpdate.slug = createSlug(title);
+
+    if (slug && slug !== existingProduct.slug) {
+      let cleanSlug = createSlug(slug) || `product-${Date.now()}`;
+      const conflict = await prisma.product.findFirst({
+        where: { slug: cleanSlug, NOT: { id } },
+      });
+      if (conflict) {
+        cleanSlug = `${cleanSlug}-${Math.floor(1000 + Math.random() * 9000)}`;
+      }
+      dataToUpdate.slug = cleanSlug;
     }
+
     if (categoryId !== undefined) dataToUpdate.categoryId = categoryId;
-    if (cashPrice !== undefined) dataToUpdate.cashPrice = Number(cashPrice);
-    if (installmentPrice !== undefined) dataToUpdate.installmentPrice = Number(installmentPrice);
-    if (downpaymentBase !== undefined) dataToUpdate.downpaymentBase = Number(downpaymentBase);
-    if (durationMonths !== undefined) dataToUpdate.durationMonths = Number(durationMonths);
+    if (cashPrice !== undefined && !isNaN(Number(cashPrice))) dataToUpdate.cashPrice = Number(cashPrice);
+    if (installmentPrice !== undefined && !isNaN(Number(installmentPrice))) {
+      dataToUpdate.installmentPrice = Number(installmentPrice);
+    }
+    if (downpaymentBase !== undefined && !isNaN(Number(downpaymentBase))) {
+      dataToUpdate.downpaymentBase = Number(downpaymentBase);
+    }
+    if (durationMonths !== undefined && !isNaN(Number(durationMonths)) && Number(durationMonths) > 0) {
+      dataToUpdate.durationMonths = Number(durationMonths);
+    }
     if (imageUrl !== undefined) dataToUpdate.imageUrl = imageUrl;
     if (specsJson !== undefined) {
       if (typeof specsJson === 'string') {
@@ -65,17 +96,23 @@ export async function PUT(
       }
     }
     if (isFeatured !== undefined) dataToUpdate.isFeatured = Boolean(isFeatured);
-    if (stock !== undefined) dataToUpdate.stock = Number(stock);
+    if (stock !== undefined && stock !== '' && !isNaN(Number(stock))) {
+      dataToUpdate.stock = Number(stock);
+    }
 
     const product = await prisma.product.update({
       where: { id },
       data: dataToUpdate,
+      include: { category: true },
     });
 
     return NextResponse.json(product);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to update product:', error);
-    return NextResponse.json({ error: 'Failed to update product' }, { status: 500 });
+    return NextResponse.json(
+      { error: formatUpdateError(error, 'Failed to update product') },
+      { status: 500 }
+    );
   }
 }
 
@@ -87,7 +124,10 @@ export async function DELETE(
     const { id } = await params;
     await prisma.product.delete({ where: { id } });
     return NextResponse.json({ success: true });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to delete product' }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: formatUpdateError(error, 'Failed to delete product') },
+      { status: 500 }
+    );
   }
 }

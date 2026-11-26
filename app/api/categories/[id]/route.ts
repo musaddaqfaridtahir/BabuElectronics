@@ -14,9 +14,10 @@ export async function PUT(
     const dataToUpdate: any = {};
     if (name !== undefined) dataToUpdate.name = name.trim();
     if (slug) {
-      dataToUpdate.slug = createSlug(slug);
-    } else if (name) {
-      dataToUpdate.slug = createSlug(name);
+      let cleanSlug = createSlug(slug) || `cat-${Date.now()}`;
+      const conflict = await prisma.category.findFirst({ where: { slug: cleanSlug, NOT: { id } } });
+      if (conflict) cleanSlug = `${cleanSlug}-${Math.floor(1000 + Math.random() * 9000)}`;
+      dataToUpdate.slug = cleanSlug;
     }
     if (image !== undefined) dataToUpdate.image = image;
 
@@ -26,9 +27,13 @@ export async function PUT(
     });
 
     return NextResponse.json(category);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to update category:', error);
-    return NextResponse.json({ error: 'Failed to update category' }, { status: 500 });
+    const msg = String(error?.message || '');
+    const hint = msg.includes('READONLY') || msg.includes('readonly') || msg.includes('EROFS')
+      ? 'Vercel par SQLite read-only hai; cloud database (Neon Postgres) connect karein.'
+      : msg || 'Failed to update category';
+    return NextResponse.json({ error: hint }, { status: 500 });
   }
 }
 

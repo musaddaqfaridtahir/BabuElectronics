@@ -12,13 +12,14 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const resolvedSlug = slug === 'honda-cg-125-self-start-2025' ? 'honda-cg125s-self-start' : slug;
   let product: any = await prisma.product.findUnique({
-    where: { slug },
+    where: { slug: resolvedSlug },
     include: { category: true },
   }).catch(() => null);
 
   if (!product) {
-    product = (fallbackCatalogProducts as any[]).find((p) => p.slug === slug);
+    product = (fallbackCatalogProducts as any[]).find((p) => p.slug === resolvedSlug || p.slug === slug);
   }
 
   if (!product) {
@@ -57,14 +58,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ProductDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  const resolvedSlug = slug === 'honda-cg-125-self-start-2025' ? 'honda-cg125s-self-start' : slug;
 
   let product: any = await prisma.product.findUnique({
-    where: { slug },
+    where: { slug: resolvedSlug },
     include: { category: true },
   }).catch(() => null);
 
   if (!product) {
-    product = (fallbackCatalogProducts as any[]).find((p) => p.slug === slug);
+    product = (fallbackCatalogProducts as any[]).find((p) => p.slug === resolvedSlug || p.slug === slug);
   }
 
   if (!product) {

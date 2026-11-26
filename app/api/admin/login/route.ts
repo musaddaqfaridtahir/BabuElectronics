@@ -8,10 +8,12 @@ export async function POST(request: Request) {
     const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'babu2025';
 
     if (password === ADMIN_PASSWORD) {
+      const forwardedProto = request.headers.get('x-forwarded-proto');
+      const isHttps = forwardedProto === 'https' || request.url.startsWith('https://');
       const response = NextResponse.json({ success: true, message: 'Authenticated successfully' });
       response.cookies.set('admin_session', 'authenticated', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
+        secure: isHttps,
         sameSite: 'lax',
         path: '/',
         maxAge: 60 * 60 * 24 * 7, // 7 days
