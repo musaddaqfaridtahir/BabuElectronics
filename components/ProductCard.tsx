@@ -30,9 +30,10 @@ export interface Product {
 interface ProductCardProps {
   product: Product;
   onApplyInstallment: (product: Product) => void;
+  priority?: boolean;
 }
 
-export default function ProductCard({ product, onApplyInstallment }: ProductCardProps) {
+export default function ProductCard({ product, onApplyInstallment, priority = false }: ProductCardProps) {
   const plan = calculateInstallmentPlan(product);
   const downpayment = plan.downpaymentAmount;
   const tenure = plan.tenureMonths;
@@ -64,8 +65,11 @@ export default function ProductCard({ product, onApplyInstallment }: ProductCard
           <img
             src={product.imageUrl}
             alt={product.title}
-            loading="lazy"
-            decoding="async"
+            loading={priority ? 'eager' : 'lazy'}
+            decoding={priority ? 'sync' : 'async'}
+            fetchPriority={priority ? 'high' : 'auto'}
+            width={400}
+            height={400}
             onError={(e) => {
               e.currentTarget.onerror = null;
               e.currentTarget.src = '/logo.png';

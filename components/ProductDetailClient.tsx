@@ -92,6 +92,17 @@ export default function ProductDetailClient({
     availableColors[0] || 'Standard'
   );
 
+  // Preload alternate color images in background for 0ms instant color switching
+  useEffect(() => {
+    const urlsToPreload = Object.values(colorImagesMap).filter(
+      (u): u is string => typeof u === 'string' && u.length > 0 && u !== product.imageUrl
+    );
+    urlsToPreload.forEach((url) => {
+      const img = new window.Image();
+      img.src = url;
+    });
+  }, [product.id]);
+
   // Dynamic Image Switcher based on Selected Color
   const getActiveProductImage = (): string => {
     // 1. Direct match in colorImagesMap
@@ -226,6 +237,11 @@ export default function ProductDetailClient({
                 key={activeImage}
                 src={activeImage}
                 alt={`${product.title} - ${selectedColor}`}
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+                width={600}
+                height={600}
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src = '/logo.png';
                 }}

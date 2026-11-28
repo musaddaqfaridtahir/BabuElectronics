@@ -132,6 +132,11 @@ export default function Hero({ onExploreClick }: HeroProps) {
               <img
                 src="/uploads/honda/cg125s-red.webp"
                 alt="Honda CG 125 Self Start 2027 Model"
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+                width={600}
+                height={600}
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src = '/logo.png';
                 }}

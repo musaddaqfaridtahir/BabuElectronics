@@ -40,25 +40,28 @@ export default function HomePageClient({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(16);
 
-  // Background refresh to catch any newly added products from admin panel
+  // Background refresh deferred so critical product images load immediately with full bandwidth
   useEffect(() => {
-    fetch('/api/products')
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          setProducts(data);
-        }
-      })
-      .catch((e) => console.warn('Background products refresh skipped:', e));
+    const timer = setTimeout(() => {
+      fetch('/api/products')
+        .then((res) => res.json())
+        .then((data) => {
+          if (Array.isArray(data) && data.length > 0) {
+            setProducts(data);
+          }
+        })
+        .catch((e) => console.warn('Background products refresh skipped:', e));
 
-    fetch('/api/categories')
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          setCategories(data);
-        }
-      })
-      .catch((e) => console.warn('Background categories refresh skipped:', e));
+      fetch('/api/categories')
+        .then((res) => res.json())
+        .then((data) => {
+          if (Array.isArray(data) && data.length > 0) {
+            setCategories(data);
+          }
+        })
+        .catch((e) => console.warn('Background categories refresh skipped:', e));
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleApplyInstallment = (product: Product) => {
@@ -172,10 +175,11 @@ export default function HomePageClient({
         ) : (
           <>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5">
-              {filteredProducts.slice(0, visibleCount).map((product) => (
+              {filteredProducts.slice(0, visibleCount).map((product, idx) => (
                 <ProductCard
                   key={product.id}
                   product={product}
+                  priority={idx < 4}
                   onApplyInstallment={handleApplyInstallment}
                 />
               ))}
